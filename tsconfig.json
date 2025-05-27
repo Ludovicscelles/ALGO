@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2016",                     // Version JS générée
+    "module": "commonjs",                   // Compatible avec Node.js
+    "outDir": "dist",                       // Dossier de sortie des .js compilés
+    "rootDir": ".",                       // Dossier source (optionnel mais conseillé)
+    "strict": true,                         // Active les vérifications strictes
+    "esModuleInterop": true,                // Pour compatibilité import/export
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["*.ts"]
+}
