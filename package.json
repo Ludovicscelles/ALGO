@@ -8,6 +8,7 @@
     "start": "tsc index2.ts && node index2.js",
     "start3": "tsc index3.ts && node index3.js",
     "start4": "tsc index4.ts && node index4.js",
+    "start5": "tsc index5.ts && node index5.js",
     "watch": "tsc --watch"
   },
   "keywords": [],
