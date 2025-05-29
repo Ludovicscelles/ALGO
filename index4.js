@@ -45,9 +45,22 @@ function sumOfNumbers(n) {
     }
     var sum = 0;
     var str = n.toString();
-    for (var i = 0; i <= str.length; i++) {
+    for (var i = 0; i < str.length; i++) {
         sum += parseInt(str[i]);
     }
     return sum;
 }
 console.log(sumOfNumbers(1515));
+function primeNumber(n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (var i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(primeNumber(1));
+console.log(primeNumber(131356));

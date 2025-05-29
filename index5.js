@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function countDigits(n) {
     if (!Number.isInteger(n)) {
         throw new Error("La saisie doit être un nombre entier");
@@ -9,11 +11,34 @@ function countDigits(n) {
     return count;
 }
 console.log(countDigits(15899));
-function reverseAString(str) {
+function reverseAString3(str) {
     var newString = "";
     for (var i = 0; i < str.length; i++) {
         newString = str[i] + newString;
     }
     return newString;
 }
-console.log(reverseAString("Ludovic"));
+console.log(reverseAString3("Ludovic"));
+function fullMultiplicationTables() {
+    var multiplicationLine = "";
+    for (var i = 1; i <= 10; i++) {
+        for (var j = 1; j <= 10; j++) {
+            multiplicationLine += "".concat(i, " * ").concat(j, " = ").concat(i * j, " \n");
+        }
+        multiplicationLine += "\n";
+    }
+    return multiplicationLine;
+}
+console.log(fullMultiplicationTables());
+function sumOfDigits(n) {
+    if (!Number.isInteger(n) || n < 0) {
+        throw new Error("La saisie doit être un nombre entier");
+    }
+    var sum = 0;
+    var strN = n.toString();
+    for (var i = 0; i < strN.length; i++) {
+        sum += parseInt(strN[i]);
+    }
+    return sum;
+}
+console.log(sumOfDigits(1515));

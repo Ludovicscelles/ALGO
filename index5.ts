@@ -1,3 +1,5 @@
+import { number } from "joi";
+
 function countDigits(n: number): number {
   if (!Number.isInteger(n)) {
     throw new Error("La saisie doit être un nombre entier");
@@ -20,3 +22,31 @@ function reverseAString3(str: string): string {
 }
 
 console.log(reverseAString3("Ludovic"));
+
+function fullMultiplicationTables(): string {
+  let multiplicationLine: string = "";
+  for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 10; j++) {
+      multiplicationLine += `${i} * ${j} = ${i * j} \n`;
+    }
+    multiplicationLine += `\n`;
+  }
+  return multiplicationLine;
+}
+
+console.log(fullMultiplicationTables());
+
+function sumOfDigits(n: number): number {
+  if (!Number.isInteger(n) || n < 0) {
+    throw new Error("La saisie doit être un nombre entier");
+  }
+  let sum: number = 0;
+  const strN = n.toString();
+  for (let i = 0; i < strN.length; i++) {
+    sum += parseInt(strN[i]);
+  }
+  return sum;
+}
+
+console.log(sumOfDigits(1515));
+

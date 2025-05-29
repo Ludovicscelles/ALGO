@@ -1,4 +1,4 @@
-import { number } from "joi";
+import { func, number } from "joi";
 
 function numberOfDigits(n: number): number {
   if (!Number.isInteger(n)) {
@@ -60,3 +60,18 @@ function sumOfNumbers(n: number): number {
 }
 
 console.log(sumOfNumbers(1515));
+
+function primeNumber(n: number): boolean {
+  if (n <= 1) {
+    return false;
+  }
+  for (let i = 2; i < Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(primeNumber(1));
+console.log(primeNumber(131356));
