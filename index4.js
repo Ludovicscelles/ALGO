@@ -55,7 +55,7 @@ function primeNumber(n) {
     if (n <= 1) {
         return false;
     }
-    for (var i = 2; i < n; i++) {
+    for (var i = 2; i < Math.sqrt(n); i++) {
         if (n % i === 0) {
             return false;
         }
@@ -64,3 +64,25 @@ function primeNumber(n) {
 }
 console.log(primeNumber(1));
 console.log(primeNumber(131356));
+function countLettersWithoutAccent(str) {
+    var count = 0;
+    for (var i = 0; i < str.length; i++) {
+        var char = str[i];
+        if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countLettersWithoutAccent("Ludovic and Ludovica"));
+function countLettersWithAccent(str) {
+    var count = 0;
+    for (var i = 0; i < str.length; i++) {
+        var char = str[i];
+        if (char.toLocaleLowerCase() !== char.toUpperCase()) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countLettersWithAccent("Ludo à la Plage 123"));

@@ -42,3 +42,17 @@ function sumOfDigits(n) {
     return sum;
 }
 console.log(sumOfDigits(1515));
+function primeNumber(n) {
+    if (!Number.isInteger(n) || n <= 1) {
+        throw new Error("La saisie doit être un nombre entier et supèrieur à 1");
+    }
+    for (var i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(primeNumber(13));
+console.log(primeNumber(7));
+console.log(primeNumber(6));

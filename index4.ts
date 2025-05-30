@@ -75,3 +75,29 @@ function primeNumber(n: number): boolean {
 
 console.log(primeNumber(1));
 console.log(primeNumber(131356));
+
+function countLettersWithoutAccent(str: string): number {
+  let count: number = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countLettersWithoutAccent("Ludovic and Ludovica"));
+
+function countLettersWithAccent(str: string): number {
+  let count: number = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (char.toLocaleLowerCase() !== char.toUpperCase()) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countLettersWithAccent("Ludo à la Plage 123"));
