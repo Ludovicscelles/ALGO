@@ -86,3 +86,18 @@ function countLettersWithAccent(str) {
     return count;
 }
 console.log(countLettersWithAccent("Ludo à la Plage 123"));
+// function countLettersWithAccentAndRegex(str: string): number {
+//   let count: number = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (/\p{L}/u.test(str[i])) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+// console.log(countLettersWithAccentAndRegex("Ludovic à la Plage"));
+function countLettersWithAccentAndRegex2(str) {
+    var matches = str.match(/\p{L}/gu);
+    return matches ? matches.length : 0;
+}
+console.log(countLettersWithAccentAndRegex2("Ludovic à la Plage"));

@@ -1,5 +1,5 @@
+"use strict";
 // import { func, number } from "joi";
-
 // function numberOfDigits(n: number): number {
 //   if (!Number.isInteger(n)) {
 //     throw new Error("La saisie doit être un nombre entier");
@@ -10,10 +10,8 @@
 //   }
 //   return count;
 // }
-
 // console.log(numberOfDigits(12));
 // console.log(numberOfDigits(1253));
-
 // function reverseAString(str: string): string {
 //   let newString: string = "";
 //   for (let i = str.length - 1; i >= 0; i--) {
@@ -21,9 +19,7 @@
 //   }
 //   return newString;
 // }
-
 // console.log(reverseAString("Ludovic"));
-
 // function reverseAString2(str: string): string {
 //   let newString: string = "";
 //   for (let i = 0; i < str.length; i++) {
@@ -31,9 +27,7 @@
 //   }
 //   return newString;
 // }
-
 // console.log(reverseAString2("Ludovic"));
-
 // function multiplicationTable(): string {
 //   let multiplicationLine: string = "";
 //   for (let i = 1; i <= 10; i++) {
@@ -44,9 +38,7 @@
 //   }
 //   return multiplicationLine;
 // }
-
 // console.log(multiplicationTable());
-
 // function sumOfNumbers(n: number): number {
 //   if (!Number.isInteger(n) || n < 0) {
 //     throw new Error("La saisie doit être un nombre entier et positif");
@@ -58,9 +50,7 @@
 //   }
 //   return sum;
 // }
-
 // console.log(sumOfNumbers(1515));
-
 // function primeNumber(n: number): boolean {
 //   if (n <= 1) {
 //     return false;
@@ -72,10 +62,8 @@
 //   }
 //   return true;
 // }
-
 // console.log(primeNumber(1));
 // console.log(primeNumber(131356));
-
 // function countLettersWithoutAccent(str: string): number {
 //   let count: number = 0;
 //   for (let i = 0; i < str.length; i++) {
@@ -86,9 +74,7 @@
 //   }
 //   return count;
 // }
-
 // console.log(countLettersWithoutAccent("Ludovic and Ludovica"));
-
 // function countLettersWithAccent(str: string): number {
 //   let count: number = 0;
 //   for (let i = 0; i < str.length; i++) {
@@ -99,24 +85,19 @@
 //   }
 //   return count;
 // }
-
 // console.log(countLettersWithAccent("Ludo à la Plage 123"));
-
-function countLettersWithAccentAndRegex(str: string): number {
-  let count: number = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (/\p{L}/u.test(str[i])) {
-      count++;
+function countLettersWithAccentAndRegex(str) {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (/\p{L}/u.test(str[i])) {
+            count++;
+        }
     }
-  }
-  return count;
+    return count;
 }
-
 console.log(countLettersWithAccentAndRegex("Ludovic à la Plage"));
-
-function countLettersWithAccentAndRegex2(str: string): number {
-  const matches = str.match(/\p{L}/gu);
-  return matches ? matches.length : 0;
+function countLettersWithAccentAndRegex2(str) {
+    const matches = str.match(/\p{L}/gu);
+    return matches ? matches.length : 0;
 }
-
 console.log(countLettersWithAccentAndRegex2("Ludovic à la Plage"));

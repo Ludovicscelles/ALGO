@@ -65,3 +65,29 @@ function primeNumber(n: number): boolean {
 console.log(primeNumber(13));
 console.log(primeNumber(7));
 console.log(primeNumber(6));
+
+function countLetters(str: string): number {
+  let count: number = 0;
+  for (let i = 0; i < str.length; i++) {
+    const letter = str[i];
+    if ((letter >= "a" && letter <= "z") || (letter >= "A" && letter <= "Z")) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countLetters("Ludovic à la Plage"));
+
+function countLettersWithAccent(str: string): number {
+  let count: number = 0;
+  for (let i = 0; i < str.length; i++) {
+    const letter = str[i];
+    if (letter.toLowerCase() !== letter.toUpperCase()) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countLettersWithAccent("Ludovic à la Plage"));
