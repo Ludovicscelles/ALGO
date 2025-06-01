@@ -66,24 +66,22 @@ console.log(primeNumber(13));
 console.log(primeNumber(7));
 console.log(primeNumber(6));
 
-function countLetters(str: string): number {
+function countLettersWithoutAccent(str: string): number {
   let count: number = 0;
   for (let i = 0; i < str.length; i++) {
-    const letter = str[i];
-    if ((letter >= "a" && letter <= "z") || (letter >= "A" && letter <= "Z")) {
-      count++;
+    if ((str[i] >= "a" && str[i] <= "z") || (str[i] >= "A" && str[i] <= "Z")) {
+      count = count + 1;
     }
   }
   return count;
 }
 
-console.log(countLetters("Ludovic à la Plage"));
+console.log(countLettersWithoutAccent("Ludovic à la Plage"));
 
 function countLettersWithAccent(str: string): number {
   let count: number = 0;
   for (let i = 0; i < str.length; i++) {
-    const letter = str[i];
-    if (letter.toLowerCase() !== letter.toUpperCase()) {
+    if (str[i].toLowerCase() !== str[i].toUpperCase()) {
       count++;
     }
   }
@@ -91,3 +89,15 @@ function countLettersWithAccent(str: string): number {
 }
 
 console.log(countLettersWithAccent("Ludovic à la Plage"));
+
+function countLettersWithAccent2(str: string): number {
+  let count: number = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (/\p{L}/u.test(str[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countLettersWithAccent2("Ludovic à La Plage"))
