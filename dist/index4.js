@@ -86,18 +86,42 @@
 //   return count;
 // }
 // console.log(countLettersWithAccent("Ludo à la Plage 123"));
-function countLettersWithAccentAndRegex(str) {
-    let count = 0;
-    for (let i = 0; i < str.length; i++) {
-        if (/\p{L}/u.test(str[i])) {
-            count++;
+// function countLettersWithAccentAndRegex(str: string): number {
+//   let count: number = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (/\p{L}/u.test(str[i])) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+// console.log(countLettersWithAccentAndRegex("Ludovic à la Plage"));
+// function countLettersWithAccentAndRegex2(str: string): number {
+//   const matches = str.match(/\p{L}/gu);
+//   return matches ? matches.length : 0;
+// }
+// console.log(countLettersWithAccentAndRegex2("Ludovic à la Plage"));
+function theLongestWord(str) {
+    const words = str.match(/[a-zA-ZÀ-ÿ0-9]+/gi);
+    if (!words) {
+        throw new Error("La saisie doit comporter à minima un mot");
+    }
+    let largest = "";
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > largest.length) {
+            largest = words[i];
         }
     }
-    return count;
+    return largest;
 }
-console.log(countLettersWithAccentAndRegex("Ludovic à la Plage"));
-function countLettersWithAccentAndRegex2(str) {
-    const matches = str.match(/\p{L}/gu);
-    return matches ? matches.length : 0;
+console.log(theLongestWord("Ludovic à la plage"));
+function oddNumbersArray(arrNumb) {
+    let oddNumbers = [];
+    for (let i = 0; i < arrNumb.length; i++) {
+        if (arrNumb[i] % 2 !== 0) {
+            oddNumbers.push(arrNumb[i]);
+        }
+    }
+    return oddNumbers;
 }
-console.log(countLettersWithAccentAndRegex2("Ludovic à la Plage"));
+console.log(oddNumbersArray([24, 26, 81, 33, 69, 22, 88]));
