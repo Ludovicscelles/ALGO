@@ -1,5 +1,6 @@
 "use strict";
 // import { func, number } from "joi";
+Object.defineProperty(exports, "__esModule", { value: true });
 // function numberOfDigits(n: number): number {
 //   if (!Number.isInteger(n)) {
 //     throw new Error("La saisie doit être un nombre entier");
@@ -125,3 +126,21 @@ function oddNumbersArray(arrNumb) {
     return oddNumbers;
 }
 console.log(oddNumbersArray([24, 26, 81, 33, 69, 22, 88]));
+function mostCommonValue(arr) {
+    let maxcount = 0;
+    let value = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let count = 0;
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                count++;
+            }
+            if (count > maxcount || (count === maxcount && arr[i] > value)) {
+                maxcount = count;
+                value = arr[i];
+            }
+        }
+    }
+    return value;
+}
+console.log(mostCommonValue([12, 33, 12, 12, 87, 125]));
