@@ -155,11 +155,11 @@ function oddNumbersArray(arrNumb: number[]): number[] {
 console.log(oddNumbersArray([24, 26, 81, 33, 69, 22, 88]));
 
 function mostCommonValue(arr: number[]): number {
-  let count: number = 0;
   let maxcount: number = 0;
   let value: number = 0;
 
   for (let i = 0; i < arr.length; i++) {
+    let count: number = 0;
     for (let j = 0; j < arr.length; j++) {
       if (arr[i] === arr[j]) {
         count++;
@@ -174,5 +174,3 @@ function mostCommonValue(arr: number[]): number {
 }
 
 console.log(mostCommonValue([12, 33, 12, 12, 87, 125]));
-
-
