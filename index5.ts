@@ -131,3 +131,24 @@ function oddNumbers(arr: number[]): number[] {
 }
 
 console.log(oddNumbers([15, 25, 22, 34, 27]));
+
+function mostCommonValue(arr: number[]): number {
+  let value: number = 0;
+  let maxcount: number = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let count: number = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        count++;
+      }
+    }
+    if (count > maxcount || (count === maxcount && arr[i] > value)) {
+      maxcount = count;
+      value = arr[i];
+    }
+  }
+  return value;
+}
+
+console.log(mostCommonValue([1, 5, 12, 12, 12, 35, 65, 78, 12, 98]));
