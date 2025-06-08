@@ -38,3 +38,34 @@ function reverseAString(str) {
     return newString;
 }
 console.log(reverseAString("Ludovic"));
+// 3. Table de multiplication complète
+// Écris une fonction qui affiche toutes les tables de 1 à 10 (10 lignes par table).
+// ******************
+function multiplicationTable() {
+    let multiplicationTableLine = "";
+    for (let i = 1; i <= 10; i++) {
+        for (let j = 1; j <= 10; j++) {
+            multiplicationTableLine += `${i} * ${j} = ${i * j} \n`;
+        }
+        multiplicationTableLine += `\n`;
+    }
+    return multiplicationTableLine;
+}
+console.log(multiplicationTable());
+// 4. Somme des chiffres
+// Écris une fonction qui retourne la somme de tous les chiffres d’un nombre entier.
+// Exemple : 123 → 1 + 2 + 3 = 6
+// **************************
+function sumOfDigits(nbr) {
+    if (!Number.isInteger(nbr)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    let sum = 0;
+    let stringifiedNbr = Math.abs(nbr).toString();
+    for (let i = 0; i < stringifiedNbr.length; i++) {
+        sum += parseInt(stringifiedNbr[i]);
+    }
+    return sum;
+}
+console.log(sumOfDigits(1515));
+console.log(sumOfDigits(-15));
