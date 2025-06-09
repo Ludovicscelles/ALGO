@@ -1,5 +1,6 @@
 // ******
 
+import { error } from "console";
 import { string } from "joi";
 
 // 1. Nombre de chiffres
@@ -104,10 +105,10 @@ console.log(sumOfDigits(-15));
 
 // **************************
 
-function primeNumber(nbr: number): boolean {
+function isPrime(nbr: number): boolean {
   if (!Number.isInteger(nbr)) {
-    throw new Error("La saisie doit être un nombre entier");
-  } else if (nbr <= 1) {
+    throw new Error(`La saisie doit être un nombre entier`);
+  } else if (nbr < 2) {
     return false;
   } else {
     for (let i = 2; i <= Math.sqrt(nbr); i++) {
@@ -119,34 +120,18 @@ function primeNumber(nbr: number): boolean {
   return true;
 }
 
-console.log(primeNumber(2));
-console.log(primeNumber(3));
-console.log(primeNumber(4));
+console.log(isPrime(2));
+console.log(isPrime(4));
+console.log(isPrime(16));
 
 // 6. Compter les lettres
 // Écris une fonction qui retourne le nombre de lettres dans une chaîne (en ignorant les espaces, chiffres, ponctuations).
 
 // **************************
 
-function countChar(str: string): number {
-  if (typeof str !== "string") {
-    throw new Error("La saisie doit être une chaîne de caractères");
-  }
-
-  let count: number = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i].toUpperCase() !== str[i].toLowerCase()) {
-      count = count + 1;
-    }
-  }
-  return count;
-}
-
-console.log(countChar("Ludovic à la plage"));
-
 function countLetters(str: string): number {
   if (typeof str !== "string") {
-    throw new Error("La saisie doit être une chaîne de caractères");
+    throw new Error(`La saisie doit être une chaîne de caractères`);
   }
   let count: number = 0;
   for (let i = 0; i < str.length; i++) {
@@ -157,4 +142,8 @@ function countLetters(str: string): number {
   return count;
 }
 
-console.log(countLetters("Ludovic à la Plage"));
+console.log(countLetters("Ludovic à la plage"));
+console.log(countLetters("654654565"));
+console.log(countLetters("14565 1321 46565"));
+console.log(countLetters("456456 ??..!!@@@"));
+console.log(countLetters("éàéèù"))

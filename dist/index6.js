@@ -72,11 +72,11 @@ console.log(sumOfDigits(-15));
 // 5. Nombre premier
 // Écris une fonction qui vérifie si un nombre est premier (divisible uniquement par 1 et lui-même).
 // **************************
-function primeNumber(nbr) {
+function isPrime(nbr) {
     if (!Number.isInteger(nbr)) {
-        throw new Error("La saisie doit être un nombre entier");
+        throw new Error(`La saisie doit être un nombre entier`);
     }
-    else if (nbr <= 1) {
+    else if (nbr < 2) {
         return false;
     }
     else {
@@ -88,28 +88,15 @@ function primeNumber(nbr) {
     }
     return true;
 }
-console.log(primeNumber(2));
-console.log(primeNumber(3));
-console.log(primeNumber(4));
+console.log(isPrime(2));
+console.log(isPrime(4));
+console.log(isPrime(16));
 // 6. Compter les lettres
 // Écris une fonction qui retourne le nombre de lettres dans une chaîne (en ignorant les espaces, chiffres, ponctuations).
 // **************************
-function countChar(str) {
-    if (typeof str !== "string") {
-        throw new Error("La saisie doit être une chaîne de caractères");
-    }
-    let count = 0;
-    for (let i = 0; i < str.length; i++) {
-        if (str[i].toUpperCase() !== str[i].toLowerCase()) {
-            count = count + 1;
-        }
-    }
-    return count;
-}
-console.log(countChar("Ludovic à la plage"));
 function countLetters(str) {
     if (typeof str !== "string") {
-        throw new Error("La saisie doit être une chaîne de caractères");
+        throw new Error(`La saisie doit être une chaîne de caractères`);
     }
     let count = 0;
     for (let i = 0; i < str.length; i++) {
@@ -119,4 +106,8 @@ function countLetters(str) {
     }
     return count;
 }
-console.log(countLetters("Ludovic à la Plage"));
+console.log(countLetters("Ludovic à la plage"));
+console.log(countLetters("654654565"));
+console.log(countLetters("14565 1321 46565"));
+console.log(countLetters("456456 ??..!!@@@"));
+console.log(countLetters("éàéèù"));
