@@ -1,7 +1,6 @@
 // ******
 
-import { error } from "console";
-import { string } from "joi";
+import { number } from "joi";
 
 // 1. Nombre de chiffres
 // Écris une fonction qui retourne le nombre de chiffres dans un entier donné.
@@ -146,4 +145,51 @@ console.log(countLetters("Ludovic à la plage"));
 console.log(countLetters("654654565"));
 console.log(countLetters("14565 1321 46565"));
 console.log(countLetters("456456 ??..!!@@@"));
-console.log(countLetters("éàéèù"))
+console.log(countLetters("éàéèù"));
+
+// 7. Mot le plus long
+// Écris une fonction qui retourne le mot le plus long dans une phrase.
+
+// Exemple : "Bonjour tout le monde" → "Bonjour"
+
+// *****************************
+
+function longestWord(str: string): string {
+  const words: string[] | null = str.match(/[a-zA-ZÀ-ÿ0-9]+/g);
+
+  if (!words) {
+    throw new Error(`La saisie doit être une chaîne de caractères`);
+  }
+
+  let largest: string = "";
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > largest.length) {
+      largest = words[i];
+    }
+  }
+  return largest;
+}
+
+console.log(longestWord("Rome est une ville attractive"));
+
+// 8. Filtrer les impairs
+// Écris une fonction qui retourne un nouveau tableau contenant uniquement les nombres impairs.
+
+// ************************************************
+
+function filterOddNumbers(nbr: number[]): number[] {
+  if (!Array.isArray(nbr) || nbr.length < 2) {
+    throw new Error("La saisie doit comporter à minima deux chiffres");
+  }
+
+  const oddNumbers: number[] = [];
+  for (let i = 0; i < nbr.length; i++) {
+    if (nbr[i] % 2 !== 0) {
+      oddNumbers.push(nbr[i]);
+    }
+  }
+  return oddNumbers;
+}
+
+console.log(filterOddNumbers([25, 22, 16, 81, 80]));
