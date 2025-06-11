@@ -193,3 +193,81 @@ function filterOddNumbers(nbr: number[]): number[] {
 }
 
 console.log(filterOddNumbers([25, 22, 16, 81, 80]));
+
+// 9. Valeur la plus fréquente
+// Écris une fonction qui retourne la valeur la plus présente dans un tableau de nombres.
+
+// Exemple : [1, 2, 2, 3, 1, 2] → 2
+
+// **********************
+
+// Declaration de la fonction pour trouver la valeur la plus fréquente dans un tableau de nombres
+function mostCommonValue(arr: number[]): number {
+  // Vérification que l'entrée est un tableau et qu'il contient au moins trois éléments
+  if (!Array.isArray(arr) || arr.length < 3) {
+    throw new Error(`La saisie doit comporter au moins trois chiffres`);
+  }
+
+  // Initialisation des variables pour stocker la valeur la plus fréquente et son nombre d'occurrences
+  let value: number = 0;
+  let maxCount: number = 0;
+
+  // Boucle pour parcourir chaque élément du tableau
+  for (let i = 0; i < arr.length; i++) {
+    // Initialisation du compteur pour l'élément courant
+    let count = 0;
+
+    // Boucle interne : on compare arr[i] avec tous les autres éléments du tableau
+    for (let j = 0; j < arr.length; j++) {
+      // Si l'élément courant est égal à l'élément j, on incrémente le compteur
+      if (arr[i] === arr[j]) {
+        count++;
+      }
+
+      // Si le compteur dépasse le maximum actuel ou si le compteur est égal au maximum mais que l'élément courant est plus grand,
+      // on met à jour la valeur et le compteur maximum
+      if (count > maxCount || (count === maxCount && arr[i] > value)) {
+        maxCount = count;
+        value = arr[i];
+      }
+    }
+  }
+  // Retourne la valeur la plus fréquente trouvée dans le tableau
+  return value;
+}
+
+console.log(mostCommonValue([12, 25, 14, 12, 59, 14, 12, 87, 14, 96]));
+
+// 9bis. Valeur la plus fréquente
+// Écris une fonction qui retourne la valeur la plus présente dans un tableau de nombres.
+
+// Exemple : [1, 2, 2, 3, 1, 2] → 2
+
+// **********************
+
+function mostCommonNumber(arr: number[]): number {
+  if (!Array.isArray(arr) || arr.length < 3) {
+    throw new Error(`La saisie doit comporter au moins trois chiffres`);
+  }
+
+  let value: number = 0;
+  let maxCount: number = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let count: number = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        count++;
+      }
+      if (count > maxCount || (count === maxCount && arr[i] > value)) {
+        maxCount = count;
+        value = arr[i];
+      }
+    }
+  }
+  return value;
+}
+
+console.log(
+  mostCommonNumber([15, 78, 98, 56, 15, 15, 14, 16, 14, 87, 14, 51, 23])
+);
