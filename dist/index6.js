@@ -1,6 +1,5 @@
 "use strict";
 // ******
-Object.defineProperty(exports, "__esModule", { value: true });
 // 1. Nombre de chiffres
 // Écris une fonction qui retourne le nombre de chiffres dans un entier donné.
 // Exemple : 12345 → 5
@@ -162,7 +161,7 @@ function mostCommonValue(arr) {
     for (let i = 0; i < arr.length; i++) {
         // Initialisation du compteur pour l'élément courant
         let count = 0;
-        // Boucle pour compter les occurrences de l'élément courant dans le tableau
+        // Boucle interne : on compare arr[i] avec tous les autres éléments du tableau
         for (let j = 0; j < arr.length; j++) {
             // Si l'élément courant est égal à l'élément j, on incrémente le compteur
             if (arr[i] === arr[j]) {
@@ -205,3 +204,62 @@ function mostCommonNumber(arr) {
     return value;
 }
 console.log(mostCommonNumber([15, 78, 98, 56, 15, 15, 14, 16, 14, 87, 14, 51, 23]));
+// 10. Fusion de tableaux
+// Écris une fonction qui fusionne deux tableaux sans doublons.
+// Exemple : [1, 2, 3] et [3, 4, 5] → [1, 2, 3, 4, 5]
+// *******************************
+// Déclaration de la fonction pour fusionner deux tableaux sans doublons
+function merge2Arrays(arrNbr1, arrNbr2) {
+    // Vérification que les deux paramètres sont des tableaux
+    if (!Array.isArray(arrNbr1) || !Array.isArray(arrNbr2)) {
+        throw new Error(`Les deux paramètres doivent être des tableaux`);
+    }
+    // Vérification que les deux tableaux contiennent au moins un chiffre
+    if (!arrNbr1.length || !arrNbr2.length) {
+        throw new Error(`Chaque tableau doit comporter au moins un chiffre`);
+    }
+    // Initialisation d'un tableau pour stocker les valeurs fusionnées sans doublons
+    const fusionArray = [];
+    // Boucle pour parcourir le premier tableau
+    for (let i = 0; i < arrNbr1.length; i++) {
+        // Si l'élément n'est pas déjà dans fusionArray, on l'ajoute
+        if (!fusionArray.includes(arrNbr1[i])) {
+            fusionArray.push(arrNbr1[i]);
+        }
+        // Boucle pour parcourir le deuxième tableau
+        for (let i = 0; i < arrNbr2.length; i++) {
+            // Si l'élément n'est pas déjà dans fusionArray, on l'ajoute
+            if (!fusionArray.includes(arrNbr2[i])) {
+                fusionArray.push(arrNbr2[i]);
+            }
+        }
+    }
+    // Retourne le tableau fusionné sans doublons
+    return fusionArray;
+}
+console.log(merge2Arrays([1, 2, 3, 4, 4], [4, 5, 6, 7, 8, 8, 9]));
+// 10bis. Fusion de tableaux
+// Écris une fonction qui fusionne deux tableaux sans doublons.
+// Exemple : [1, 2, 3] et [3, 4, 5] → [1, 2, 3, 4, 5]
+// *******************************
+function mergeArrays(arrNbr1, arrNbr2) {
+    if (!Array.isArray(arrNbr1) || !Array.isArray(arrNbr2)) {
+        throw new Error(`Les deux paramètres doivent être des tableaux`);
+    }
+    if (!arrNbr1.length || !arrNbr2.length) {
+        throw new Error(`Chaque tableau doit comporter au moins un chiffre`);
+    }
+    const fusionArray = [];
+    for (let i = 0; i < arrNbr1.length; i++) {
+        if (!fusionArray.includes(arrNbr1[i])) {
+            fusionArray.push(arrNbr1[i]);
+        }
+        for (let i = 0; i < arrNbr2.length; i++) {
+            if (!fusionArray.includes(arrNbr2[i])) {
+                fusionArray.push(arrNbr2[i]);
+            }
+        }
+    }
+    return fusionArray;
+}
+console.log(mergeArrays([1, 2, 3, 4, 4], [4, 5, 6, 7, 8, 8, 9]));
