@@ -71,3 +71,54 @@ Exemple : [1, 2, 2, 3, 1, 2] → 2
 Écris une fonction qui fusionne deux tableaux sans doublons.
 
 Exemple : [1, 2, 3] et [3, 4, 5] → [1, 2, 3, 4, 5]
+
+*****
+
+🔢 1. Somme des chiffres pairs
+Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
+📌 Exemple : 2489 → 2 + 4 + 8 = 14
+
+🔁 2. Inverser un nombre
+Écris une fonction qui prend un entier et retourne son inverse.
+📌 Exemple : 1234 → 4321
+(sans convertir en string si tu veux un vrai défi)
+
+🧮 3. PGCD (Plus Grand Commun Diviseur)
+Écris une fonction qui retourne le PGCD de deux nombres entiers.
+📌 Exemple : PGCD(48, 18) → 6
+
+🔤 4. Anagramme
+Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+📌 Exemple : "listen" et "silent" → ✅
+
+🔠 5. Mettre en majuscules la première lettre de chaque mot
+📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+
+🧠 6. Table de multiplication améliorée
+Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+
+📊 7. Calcul de la moyenne
+Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+📌 Bonus : Arrondir à 2 décimales.
+
+📦 8. Compresser une chaîne (Run-length encoding)
+Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+📌 Exemple : "aaabbc" → "a3b2c1"
+
+🎯 9. Trouver le deuxième plus grand nombre
+Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+
+🧩 10. Trouver tous les multiples de 3 ou 5 jusqu'à n
+📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+
+Souhaites-tu que je t’en propose un pour commencer ? Ou tu préfères choisir parmi ceux-là ?
+
+
+
+
+
+
+
+
+
