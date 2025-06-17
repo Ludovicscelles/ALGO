@@ -207,3 +207,41 @@ function reverseDigitsWithComments(nbr) {
 }
 console.log(reverseDigitsWithComments(1234));
 console.log(reverseDigitsWithComments(-1234));
+// ****************************
+// 🧮 3. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+// ******************************
+function GCD(nbr1, nbr2) {
+    if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+        throw new Error(`La saisie doit comporter deux nombres entiers `);
+    }
+    let absNbr1 = Math.abs(nbr1);
+    let absNbr2 = Math.abs(nbr2);
+    while (absNbr2 !== 0) {
+        const temp = absNbr2;
+        absNbr2 = absNbr1 % absNbr2;
+        absNbr1 = temp;
+    }
+    return absNbr1;
+}
+console.log(GCD(18, 48));
+// ****************************
+// 🧮 3bis. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+// ******************************
+function GCD2(nbr1, nbr2) {
+    if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+        throw new Error(`La saisie doit comporter deux nombres entiers `);
+    }
+    let absNbr1 = Math.abs(nbr1);
+    let absNbr2 = Math.abs(nbr2);
+    for (; absNbr2 !== 0;) {
+        const temp = absNbr2;
+        absNbr2 = absNbr1 % absNbr2;
+        absNbr1 = temp;
+    }
+    return absNbr1;
+}
+console.log(GCD2(18, 48));
