@@ -1,6 +1,5 @@
 "use strict";
 // *********************
-Object.defineProperty(exports, "__esModule", { value: true });
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
 // 📌 Exemple : 2489 → 2 + 4 + 8 = 14
@@ -40,3 +39,43 @@ function sumEvenDiggit(nbr) {
     return sum;
 }
 console.log(sumEvenDiggit(2489));
+// *********************
+// 🔁 2. Inverser un nombre
+// Écris une fonction qui prend un entier et retourne son inverse.
+// 📌 Exemple : 1234 → 4321
+// (sans convertir en string si tu veux un vrai défi)
+// *******************************
+function reverseANumber(nbr) {
+    if (!Number.isInteger(nbr)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    let absNbr = Math.abs(nbr);
+    const isNegative = nbr < 0;
+    let revNumber = 0;
+    for (; absNbr > 0; absNbr = Math.floor(absNbr / 10)) {
+        revNumber = revNumber * 10 + (absNbr % 10);
+    }
+    return isNegative ? -revNumber : revNumber;
+}
+console.log(reverseANumber(19));
+// *********************
+// 🔁 2. Inverser un nombre
+// Écris une fonction qui prend un entier et retourne son inverse.
+// 📌 Exemple : 1234 → 4321
+// (sans convertir en string si tu veux un vrai défi)
+// *******************************
+function reverseANumber2(nbr) {
+    if (!Number.isInteger(nbr)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    const isNegative = nbr < 0;
+    let absNbr = Math.abs(nbr);
+    let revNumber = 0;
+    while (absNbr > 0) {
+        revNumber = revNumber * 10 + (absNbr % 10);
+        absNbr = Math.floor(absNbr / 10);
+    }
+    return isNegative ? -revNumber : revNumber;
+}
+console.log(reverseANumber2(19));
+console.log(reverseANumber2(-19));

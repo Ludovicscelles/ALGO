@@ -6,7 +6,8 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "typescript": true,
-    "css": false
+    "typescript": false,
+    "css": false,
+    "sql": false
   }
 }
