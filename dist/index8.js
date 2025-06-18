@@ -1,5 +1,6 @@
 "use strict";
 // *********************
+Object.defineProperty(exports, "__esModule", { value: true });
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
 // 📌 Exemple : 2489 → 2 + 4 + 8 = 14
@@ -79,3 +80,41 @@ function reverseANumber2(nbr) {
 }
 console.log(reverseANumber2(19));
 console.log(reverseANumber2(-19));
+// ****************************
+// 🧮 3. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+// ******************************
+function hcf(nbr1, nbr2) {
+    if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+        throw new Error(`La saisie doit comporter deux nombres entiers`);
+    }
+    let absNbr1 = Math.abs(nbr1);
+    let absNbr2 = Math.abs(nbr2);
+    while (absNbr2 !== 0) {
+        const temp = absNbr2;
+        absNbr2 = absNbr1 % absNbr2;
+        absNbr1 = temp;
+    }
+    return absNbr1;
+}
+console.log(hcf(300, 90));
+// ****************************
+// 🧮 3bis. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+// ******************************
+function hcf2(nbr1, nbr2) {
+    if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+        throw new Error(`La saisie doit comporter deux nombres entiers`);
+    }
+    let absNbr1 = Math.abs(nbr1);
+    let absNbr2 = Math.abs(nbr2);
+    for (; absNbr2 !== 0;) {
+        const temp = absNbr2;
+        absNbr2 = absNbr1 % absNbr2;
+        absNbr1 = temp;
+    }
+    return absNbr1;
+}
+console.log(hcf2(7, 28));
