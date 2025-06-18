@@ -314,7 +314,6 @@ function GCD2(nbr1: number, nbr2: number): number {
 
 console.log(GCD2(18, 48));
 
-
 // ****************************
 
 // 🧮 3ter. PGCD (Plus Grand Commun Diviseur)
@@ -323,9 +322,36 @@ console.log(GCD2(18, 48));
 
 // ******************************
 
+function GCD3(nbr1: number, nbr2: number): number {
+  if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+    throw new Error(`La saisie doit comporter deux nombres entiers`);
+  }
+  let absNbr1 = Math.abs(nbr1);
+  let absNbr2 = Math.abs(nbr2);
+
+  let smaller = Math.min(absNbr1, absNbr2);
+  let hcf = 1;
+
+  for (let i = 1; i <= smaller; i++) {
+    if (absNbr1 % i === 0 && absNbr2 % i === 0) {
+      hcf = i;
+    }
+  }
+  return hcf;
+}
+
+console.log(GCD3(21, 49));
+
+// ****************************
+
+// 🧮 3quater. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+
+// ******************************
+
 // Declaration de la fonction pour trouver le PGCD
 function GCDWithComments(nbr1: number, nbr2: number): number {
-
   // Vérification que les deux entrées sont des nombres entiers
   // Si ce n'est pas le cas, une erreur est levée
   if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
@@ -339,7 +365,6 @@ function GCDWithComments(nbr1: number, nbr2: number): number {
   // Boucle pour trouver le PGCD en utilisant l'algorithme d'Euclide
   // Tant que le second nombre n'est pas égal à zéro, on continue à calculer
   while (absNbr2 !== 0) {
-
     // On stocke le second nombre dans une variable temporaire
     // pour pouvoir l'utiliser après avoir modifié absNbr2
     // Cette étape est nécessaire pour éviter de perdre la valeur de absNbr2
@@ -370,7 +395,7 @@ console.log(GCDWithComments(18, 48));
 
 // ****************************
 
-// 🧮 3quater. PGCD (Plus Grand Commun Diviseur)
+// 🧮 3quinquies. PGCD (Plus Grand Commun Diviseur)
 // Écris une fonction qui retourne le PGCD de deux nombres entiers.
 // 📌 Exemple : PGCD(48, 18) → 6
 
@@ -378,7 +403,6 @@ console.log(GCDWithComments(18, 48));
 
 // Declaration de la fonction pour trouver le PGCD
 function GCD2WithComments(nbr1: number, nbr2: number): number {
-
   // Vérification que les deux entrées sont des nombres entiers
   // Si ce n'est pas le cas, une erreur est levée
   // Si l'un des nombres n'est pas un entier, une erreur est levée
@@ -395,7 +419,6 @@ function GCD2WithComments(nbr1: number, nbr2: number): number {
   // Tant que le second nombre n'est pas égal à zéro, on continue à calculer
   // On utilise une boucle for pour itérer jusqu'à ce que absNbr2 devienne zéro
   for (; absNbr2 !== 0; ) {
-
     // On stocke le second nombre dans une variable temporaire
     // pour pouvoir l'utiliser après avoir modifié absNbr2
     // Cette étape est nécessaire pour éviter de perdre la valeur de absNbr2
@@ -420,3 +443,42 @@ function GCD2WithComments(nbr1: number, nbr2: number): number {
 }
 
 console.log(GCD2WithComments(18, 48));
+
+// ****************************
+
+// 🧮 3sexies. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+
+// ******************************
+
+// Declaration de la fonction pour trouver le PGCD
+function GCD3WithComments(nbr1: number, nbr2: number): number {
+  // Vérification que les deux entrées sont des nombres entiers
+  // Si ce n'est pas le cas, une erreur est levée
+  if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+    throw new Error(`La saisie doit comporter deux nombres entiers`);
+  }
+
+  // Conversion des nombres en valeurs absolues pour éviter les problèmes avec les négatifs
+  let absNbr1 = Math.abs(nbr1);
+  let absNbr2 = Math.abs(nbr2);
+
+  // On trouve le plus petit des deux nombres pour limiter la boucle
+  let smaller = Math.min(absNbr1, absNbr2);
+
+  // Initialisation de la variable pour stocker le PGCD
+  let hcf = 1;
+
+  // Boucle pour trouver le PGCD en itérant jusqu'au plus petit des deux nombres
+  for (let i = 1; i <= smaller; i++) {
+    if (absNbr1 % i === 0 && absNbr2 % i === 0) {
+      hcf = i;
+    }
+  }
+
+  // Retourne le PGCD trouvé
+  return hcf;
+}
+
+console.log(GCD3WithComments(21, 49));
