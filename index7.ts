@@ -1,6 +1,6 @@
 // ***********/
 
-import { number } from "joi";
+import { number, string } from "joi";
 
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
@@ -482,3 +482,30 @@ function GCD3WithComments(nbr1: number, nbr2: number): number {
 }
 
 console.log(GCD3WithComments(21, 49));
+
+// ****************************
+
+// 🔤 4. Anagramme
+// Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+// 📌 Exemple : "listen" et "silent" → ✅
+
+// ****************************
+
+function isAnagram(str1: string, str2: string): boolean {
+  if (typeof str1 !== "string" || typeof str2 !== "string") {
+    throw new Error(`La saisie doit comporter deux chaînes de caractères`);
+  }
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  const sortedStr1: string = str1.split("").sort().join("");
+  const sortedStr2: string = str2.split("").sort().join("");
+
+  if (sortedStr1 !== sortedStr2) {
+    return false;
+  }
+  return true;
+}
+
+console.log(isAnagram("cien", "niche"));

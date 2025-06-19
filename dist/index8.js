@@ -131,7 +131,7 @@ function hcf3(nbr1, nbr2) {
     let absNbr2 = Math.abs(nbr2);
     let hcf = 1;
     const min = Math.min(absNbr1, absNbr2);
-    for (let i = 1; i < min; i++) {
+    for (let i = 1; i <= min; i++) {
         if (absNbr1 % i === 0 && absNbr2 % i === 0) {
             hcf = i;
         }

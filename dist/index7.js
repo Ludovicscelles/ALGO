@@ -378,3 +378,23 @@ function GCD3WithComments(nbr1, nbr2) {
     return hcf;
 }
 console.log(GCD3WithComments(21, 49));
+// ****************************
+// 🔤 4. Anagramme
+// Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+// 📌 Exemple : "listen" et "silent" → ✅
+// ****************************
+function isAnagram(str1, str2) {
+    if (typeof str1 !== "string" || typeof str2 !== "string") {
+        throw new Error(`La saisie doit comporter deux chaînes de caractères`);
+    }
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    const sortedStr1 = str1.split("").sort().join("");
+    const sortedStr2 = str2.split("").sort().join("");
+    if (sortedStr1 !== sortedStr2) {
+        return false;
+    }
+    return true;
+}
+console.log(isAnagram("cien", "niche"));
