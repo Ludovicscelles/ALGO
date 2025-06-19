@@ -164,3 +164,32 @@ function hcf2(nbr1: number, nbr2: number): number {
 }
 
 console.log(hcf2(7, 28));
+
+// ****************************
+
+// 🧮 3ter. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+
+// ******************************
+
+function hcf3(nbr1: number, nbr2: number): number {
+  if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+    throw new Error(`La saisie doit comporter deux nombres entiers`);
+  }
+
+  let absNbr1: number = Math.abs(nbr1);
+  let absNbr2: number = Math.abs(nbr2);
+
+  let hcf: number = 1;
+  const min: number = Math.min(absNbr1, absNbr2);
+
+  for (let i = 1; i <= min; i++) {
+    if (absNbr1 % i === 0 && absNbr2 % i === 0) {
+      hcf = i;
+    }
+  }
+  return hcf;
+}
+
+console.log(hcf3(303, 27));
