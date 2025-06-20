@@ -193,3 +193,36 @@ function hcf3(nbr1: number, nbr2: number): number {
 }
 
 console.log(hcf3(303, 27));
+
+// ******************************
+
+// 🔤 4. Anagramme
+// Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+// 📌 Exemple : "listen" et "silent" → ✅
+
+// ******************************
+
+function isAnagram(str1: string, str2: string): boolean {
+  if (typeof str1 !== "string" || typeof str2 !== "string") {
+    throw new Error("La saisie doit comporter deux chaînes de caractères");
+  }
+
+  const clean = (str: string) =>
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f\s]/g, "");
+
+  const S1 : string = clean(str1)
+  const S2 : string = clean(str2)
+
+  if (S1.length !== S2.length) return false;
+
+  return S1.split("").sort().join("") === S2.split("").sort().join("");
+}
+
+console.log(isAnagram("Chien", "niche"));
+console.log(isAnagram("Chién", "niche"));
+console.log(isAnagram("cien", "niche"));
+console.log(isAnagram("Pascal Obispo", "Pablo Picasso"));
+

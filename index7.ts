@@ -509,7 +509,7 @@ function isAnagram(str1: string, str2: string): boolean {
 }
 
 console.log(isAnagram("cien", "niche"));
-
+console.log(isAnagram("chien", "niche"));
 
 // ****************************
 
@@ -523,7 +523,6 @@ console.log(isAnagram("cien", "niche"));
 // La fonction prend deux chaînes de caractères en entrée
 // et retourne un booléen indiquant si elles sont des anagrammes
 function isAnagramWithComments(str1: string, str2: string): boolean {
-
   // Vérification que les deux entrées sont des chaînes de caractères
   // Si ce n'est pas le cas, une erreur est levée
   if (typeof str1 !== "string" || typeof str2 !== "string") {
@@ -556,4 +555,5 @@ function isAnagramWithComments(str1: string, str2: string): boolean {
   return true;
 }
 
-console.log(isAnagram("cien", "niche"));
+console.log(isAnagramWithComments("cien", "niche"));
+console.log(isAnagramWithComments("chien", "niche"));

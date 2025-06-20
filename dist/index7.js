@@ -398,3 +398,42 @@ function isAnagram(str1, str2) {
     return true;
 }
 console.log(isAnagram("cien", "niche"));
+console.log(isAnagram("chien", "niche"));
+// ****************************
+// 🔤 4. Anagramme
+// Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+// 📌 Exemple : "listen" et "silent" → ✅
+// ****************************
+// Declaration de la fonction pour vérifier si deux chaînes sont des anagrammes
+// La fonction prend deux chaînes de caractères en entrée
+// et retourne un booléen indiquant si elles sont des anagrammes
+function isAnagramWithComments(str1, str2) {
+    // Vérification que les deux entrées sont des chaînes de caractères
+    // Si ce n'est pas le cas, une erreur est levée
+    if (typeof str1 !== "string" || typeof str2 !== "string") {
+        throw new Error(`La saisie doit comporter deux chaînes de caractères`);
+    }
+    // Vérification que les deux chaînes ont la même longueur
+    // Si elles n'ont pas la même longueur, elles ne peuvent pas être des anagrammes
+    // On utilise la propriété length pour comparer les longueurs des deux chaînes
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    // On trie les caractères de chaque chaîne
+    // On utilise la méthode split pour convertir la chaîne en tableau de caractères
+    // Ensuite, on utilise la méthode sort pour trier les caractères dans l'ordre alphabétique
+    // Enfin, on utilise la méthode join pour reconvertir le tableau en chaîne de caractères
+    // On stocke les chaînes triées dans des variables pour les comparer
+    const sortedStr1 = str1.split("").sort().join("");
+    const sortedStr2 = str2.split("").sort().join("");
+    // On compare les deux chaînes triées
+    // Si elles ne sont pas égales, elles ne sont pas des anagrammes
+    if (sortedStr1 !== sortedStr2) {
+        return false;
+    }
+    // Si les chaînes triées sont égales, elles sont des anagrammes
+    // On retourne true pour indiquer que les chaînes sont des anagrammes
+    return true;
+}
+console.log(isAnagramWithComments("cien", "niche"));
+console.log(isAnagramWithComments("chien", "niche"));
