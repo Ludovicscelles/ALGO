@@ -437,3 +437,20 @@ function isAnagramWithComments(str1, str2) {
 }
 console.log(isAnagramWithComments("cien", "niche"));
 console.log(isAnagramWithComments("chien", "niche"));
+// *******************************
+// console.log(mergeArrays([1, 2, 3, 4, 4], [4, 5, 6, 7, 8, 8, 9]));
+// 🔠 5. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+// *******************************
+function putInUpperCase(sentence) {
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie doit être un chaîne de caractères`);
+    }
+    const words = sentence.split(" ");
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > 0)
+            words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    return words.join(" ");
+}
+console.log(putInUpperCase("the power of a dream"));

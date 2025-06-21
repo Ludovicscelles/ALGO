@@ -238,6 +238,7 @@ function merge2Arrays(arrNbr1, arrNbr2) {
     return fusionArray;
 }
 console.log(merge2Arrays([1, 2, 3, 4, 4], [4, 5, 6, 7, 8, 8, 9]));
+// *******************************
 // 10bis. Fusion de tableaux
 // Écris une fonction qui fusionne deux tableaux sans doublons.
 // Exemple : [1, 2, 3] et [3, 4, 5] → [1, 2, 3, 4, 5]
@@ -262,4 +263,3 @@ function mergeArrays(arrNbr1, arrNbr2) {
     }
     return fusionArray;
 }
-console.log(mergeArrays([1, 2, 3, 4, 4], [4, 5, 6, 7, 8, 8, 9]));
