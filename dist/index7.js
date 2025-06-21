@@ -442,7 +442,7 @@ console.log(isAnagramWithComments("chien", "niche"));
 // 🔠 5. Mettre en majuscules la première lettre de chaque mot
 // 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
 // *******************************
-function putInUpperCase(sentence) {
+function capitalizeWords(sentence) {
     if (typeof sentence !== "string") {
         throw new Error(`La saisie doit être un chaîne de caractères`);
     }
@@ -453,4 +453,49 @@ function putInUpperCase(sentence) {
     }
     return words.join(" ");
 }
-console.log(putInUpperCase("the power of a dream"));
+console.log(capitalizeWords("the power of a dream"));
+// 🔠 5bis. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+// *******************************
+// Declaration de la fonction pour mettre en majuscules la première lettre de chaque mot
+function capitalizeWordsWithComments(sentence) {
+    // Vérification que l'entrée est une chaîne de caractères
+    // Si ce n'est pas le cas, une erreur est levée
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie doit être un chaîne de caractères`);
+    }
+    // On divise la phrase en mots en utilisant l'espace comme séparateur
+    // On utilise la méthode split pour créer un tableau de mots
+    const words = sentence.split(" ");
+    // On parcourt chaque mot du tableau
+    // On utilise une boucle for pour itérer sur chaque mot
+    for (let i = 0; i < words.length; i++) {
+        // On vérifie si le mot n'est pas vide
+        // Si le mot a une longueur supérieure à 0, on le modifie
+        if (words[i].length > 0)
+            // On met en majuscule la première lettre du mot
+            // On utilise charAt(0) pour obtenir la première lettre
+            // On utilise toUpperCase() pour la mettre en majuscule
+            // On concatène le reste du mot en utilisant slice(1)
+            // On utilise slice(1) pour obtenir le reste du mot à partir du deuxième caractère
+            words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    // On rejoint les mots modifiés en une seule chaîne de caractères
+    // On utilise la méthode join pour créer une chaîne de caractères à partir du tableau de mots
+    return words.join(" ");
+}
+console.log(capitalizeWordsWithComments("the power of a dream"));
+// *******************************
+// 🔠 5ter. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+// *******************************
+function capitalizeWords2(sentence) {
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie doit être une chaîne de caractères`);
+    }
+    return sentence
+        .split(" ")
+        .map((word) => word ? word.charAt(0).toUpperCase() + word.slice(1) : " ")
+        .join(" ");
+}
+console.log(capitalizeWords2("where  does my heart beat now"));
