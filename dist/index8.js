@@ -162,3 +162,34 @@ console.log(isAnagram("Chien", "niche"));
 console.log(isAnagram("Chién", "niche"));
 console.log(isAnagram("cien", "niche"));
 console.log(isAnagram("Pascal Obispo", "Pablo Picasso"));
+// ******************************
+// 🔠 5. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+// ******************************
+function capitalizeEachWord(sentence) {
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie doit être une chaîne de caractères`);
+    }
+    const words = sentence.split(" ");
+    for (let i = 0; i < words.length; i++) {
+        if (words[i]) {
+            words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+        }
+    }
+    return words.join(" ");
+}
+console.log(capitalizeEachWord("we are the world"));
+// ******************************
+// 🔠 5bis. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+// ******************************
+function capitalizeEachWord2(sentence) {
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie doit être une chaîne de caractères`);
+    }
+    return sentence
+        .split(" ")
+        .map((word) => (word ? word.charAt(0).toUpperCase() + word.slice(1) : " "))
+        .join(" ");
+}
+console.log(capitalizeEachWord2("black and white"));
