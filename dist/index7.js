@@ -495,7 +495,7 @@ function capitalizeWords2(sentence) {
     }
     return sentence
         .split(" ")
-        .map((word) => word ? word.charAt(0).toUpperCase() + word.slice(1) : " ")
+        .map((word) => (word ? word.charAt(0).toUpperCase() + word.slice(1) : " "))
         .join(" ");
 }
 console.log(capitalizeWords2("where  does my heart beat now"));
@@ -511,7 +511,7 @@ function capitalizeWords2WithComment(sentence) {
     if (typeof sentence !== "string") {
         throw new Error(`La saisie doit être une chaîne de caractères`);
     }
-    return sentence
+    return (sentence
         // On divise la phrase en mots en utilisant l'espace comme séparateur
         // On utilise la méthode split pour créer un tableau de mots
         .split(" ")
@@ -528,7 +528,26 @@ function capitalizeWords2WithComment(sentence) {
     word ? word.charAt(0).toUpperCase() + word.slice(1) : " ")
         // On rejoint les mots modifiés en une seule chaîne de caractères
         // On utilise la méthode join pour créer une chaîne de caractères à partir du tableau de mots
-        .join(" ");
+        .join(" "));
 }
 // On teste la fonction avec une phrase
 console.log(capitalizeWords2WithComment("where  does my heart beat now"));
+// *******************************
+// 🧠 6. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+// *******************************
+function multiplicationTable(n) {
+    if (!Number.isInteger(n)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    const table = [];
+    for (let i = 1; i <= n; i++) {
+        const row = [];
+        for (let j = 1; j <= 10; j++) {
+            row.push(`${i} x ${j} = ${i * j}`);
+        }
+        table.push(row);
+    }
+    return table;
+}
+console.log(multiplicationTable(5));
