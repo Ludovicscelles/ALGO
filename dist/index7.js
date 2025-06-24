@@ -537,8 +537,8 @@ console.log(capitalizeWords2WithComment("where  does my heart beat now"));
 // Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
 // *******************************
 function multiplicationTable(n) {
-    if (!Number.isInteger(n)) {
-        throw new Error(`La saisie doit être un nombre entier`);
+    if (!Number.isInteger(n) || n < 1) {
+        throw new Error(`La saisie doit être un nombre entier positif`);
     }
     const table = [];
     for (let i = 1; i <= n; i++) {
@@ -550,4 +550,44 @@ function multiplicationTable(n) {
     }
     return table;
 }
+console.log(multiplicationTable(5));
+// *******************************
+// 🧠 6bis. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+// *******************************
+// Declaration de la fonction pour créer une table de multiplication
+// La fonction prend un nombre entier n en entrée
+// et retourne un tableau à deux dimensions contenant les résultats de la multiplication
+function multiplicationTableWithComments(n) {
+    // Vérification que l'entrée est un nombre entier positif
+    // Si ce n'est pas le cas, une erreur est levée
+    if (!Number.isInteger(n) || n < 1) {
+        throw new Error(`La saisie doit être un nombre entier positif`);
+    }
+    // Initialisation d'un tableau à deux dimensions pour stocker la table de multiplication
+    const table = [];
+    // Boucle pour parcourir les entiers de 1 à n
+    // On utilise une boucle for pour itérer de 1 à n
+    for (let i = 1; i <= n; i++) {
+        // Initialisation d'un tableau pour stocker les résultats de la multiplication pour l'entier i
+        // On crée un tableau vide pour chaque ligne de la table de multiplication
+        const row = [];
+        // Deuxième boucle pour parcourir les entiers multiplicateurs de 1 à 10
+        // On utilise une boucle for pour itérer de 1 à 10
+        for (let j = 1; j <= 10; j++) {
+            // On calcule le produit de i et j
+            // On utilise l'opérateur de multiplication pour obtenir le résultat
+            // On crée une chaîne de caractères au format "i x j = produit"
+            // On utilise la méthode push pour ajouter le résultat à la ligne courante
+            row.push(`${i} x ${j} = ${i * j}`);
+        }
+        // On ajoute la ligne courante à la table de multiplication
+        // On utilise la méthode push pour ajouter le tableau de résultats à la table
+        table.push(row);
+    }
+    // On retourne la table de multiplication complète
+    // La table est un tableau à deux dimensions contenant les résultats de la multiplication
+    return table;
+}
+// On teste la fonction avec un exemple
 console.log(multiplicationTable(5));
