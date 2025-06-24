@@ -257,7 +257,7 @@ console.log(capitalizeEachWord("we are the world"));
 
 // ******************************
 
-function capitalizeEachWord2(sentence: string) {
+function capitalizeEachWord2(sentence: string): string {
   if (typeof sentence !== "string") {
     throw new Error(`La saisie doit être une chaîne de caractères`);
   }
@@ -269,3 +269,31 @@ function capitalizeEachWord2(sentence: string) {
 }
 
 console.log(capitalizeEachWord2("black and white"));
+
+// ******************************
+
+// 🧠 6. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+
+// ******************************
+
+function multiplicationTable(n: number): string[][] {
+  if (!Number.isInteger(n) || n < 1) {
+    throw new Error(`La saisie doit être un nombre entier positif`);
+  }
+
+  const arrayTable: string[][] = [];
+
+  for (let i = 1; i <= n; i++) {
+    const row: string[] = [];
+    for (let j = 1; j <= 10; j++) {
+      row.push(`${i} x ${j} = ${i * j}`);
+    }
+    arrayTable.push(row);
+  }
+  return arrayTable;
+}
+
+console.log(multiplicationTable(4));
+
+
