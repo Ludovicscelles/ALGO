@@ -591,3 +591,74 @@ function multiplicationTableWithComments(n) {
 }
 // On teste la fonction avec un exemple
 console.log(multiplicationTable(5));
+// ******************************
+// 🧠 6ter. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+// ******************************
+function multiplicationTable2(n) {
+    if (!Number.isInteger(n) || n < 1) {
+        throw new Error(`La saisie doit être un nombre entier positif`);
+    }
+    const arrayTable = [];
+    let i = 1;
+    while (i <= n) {
+        const row = [];
+        let j = 1;
+        while (j <= 10) {
+            row.push(`${i} x ${j} = ${i * j}`);
+            j++;
+        }
+        arrayTable.push(row);
+        i++;
+    }
+    return arrayTable;
+}
+console.log(multiplicationTable2(5));
+// ******************************
+// 🧠 6ter. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+// ******************************
+// Declaration de la fonction pour créer une table de multiplication
+// La fonction prend un nombre entier n en entrée
+// et retourne un tableau à deux dimensions contenant les résultats de la multiplication
+function multiplicationTable2WithComments(n) {
+    // Vérification que l'entrée est un nombre entier positif
+    // Si ce n'est pas le cas, une erreur est levée
+    if (!Number.isInteger(n) || n < 1) {
+        throw new Error(`La saisie doit être un nombre entier positif`);
+    }
+    // Initialisation d'un tableau à deux dimensions pour stocker la table de multiplication
+    const arrayTable = [];
+    // Boucle while pour parcourir les entiers de 1 à n
+    // On utilise une variable i pour itérer de 1 à n
+    // La boucle continue tant que i est inférieur ou égal à n
+    let i = 1;
+    while (i <= n) {
+        // Initialisation d'un tableau pour stocker les résultats de la multiplication pour l'entier i
+        // On crée un tableau vide pour chaque ligne de la table de multiplication
+        // La ligne contiendra les résultats de la multiplication de i par les entiers de 1 à 10
+        const row = [];
+        // Deuxième boucle while pour parcourir les entiers multiplicateurs de 1 à 10
+        // On utilise une variable j pour itérer de 1 à 10
+        // La boucle continue tant que j est inférieur ou égal à 10
+        let j = 1;
+        while (j <= 10) {
+            // On calcule le produit de i et j
+            // On utilise l'opérateur de multiplication pour obtenir le résultat
+            // On crée une chaîne de caractères au format "i x j = produit"
+            // On utilise la méthode push pour ajouter le résultat à la ligne courante
+            row.push(`${i} x ${j} = ${i * j}`);
+            // On incrémente j pour passer au multiplicateur suivant
+            j++;
+        }
+        // On ajoute la ligne courante à la table de multiplication
+        // On utilise la méthode push pour ajouter le tableau de résultats à la table
+        arrayTable.push(row);
+        // On incrémente i pour passer à l'entier suivant
+        i++;
+    }
+    // On retourne la table de multiplication complète
+    return arrayTable;
+}
+// On teste la fonction avec un exemple
+console.log(multiplicationTable2WithComments(5));

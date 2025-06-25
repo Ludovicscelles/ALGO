@@ -213,12 +213,12 @@ function multiplicationTable(n) {
 }
 console.log(multiplicationTable(4));
 // ******************************
-// 🧠 6. Table de multiplication améliorée
+// 🧠 6bis. Table de multiplication améliorée
 // Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
 // ******************************
 function multiplicationTable2(n) {
     if (!Number.isInteger(n) || n < 1) {
-        throw new Error(`La saisie doit être un nombre entier positif`);
+        throw new Error(`La saisie doit comporter un nombre entier et positif`);
     }
     const arrayTable = [];
     let i = 1;
@@ -234,4 +234,4 @@ function multiplicationTable2(n) {
     }
     return arrayTable;
 }
-console.log(multiplicationTable2(5));
+console.log(multiplicationTable2(4));
