@@ -662,3 +662,19 @@ function multiplicationTable2WithComments(n) {
 }
 // On teste la fonction avec un exemple
 console.log(multiplicationTable2WithComments(5));
+// ******************************
+// 📊 7. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+// ******************************
+function average(nbr) {
+    if (!Array.isArray(nbr) || nbr.length < 2) {
+        throw new Error(`La saisie doit être un tableau comportant au moins deux nombres  `);
+    }
+    let sum = 0;
+    for (let i = 0; i < nbr.length; i++) {
+        sum = nbr[i] + sum;
+    }
+    return Math.round((sum / nbr.length) * 100) / 100;
+}
+console.log(average([28, 29, 132]));

@@ -1,5 +1,6 @@
 // ***********/
 
+import { error } from "console";
 import { number, string } from "joi";
 
 // 🔢 1. Somme des chiffres pairs
@@ -710,7 +711,6 @@ function multiplicationTable(n: number): string[][] {
 
 console.log(multiplicationTable(5));
 
-
 // *******************************
 
 // 🧠 6bis. Table de multiplication améliorée
@@ -722,7 +722,6 @@ console.log(multiplicationTable(5));
 // La fonction prend un nombre entier n en entrée
 // et retourne un tableau à deux dimensions contenant les résultats de la multiplication
 function multiplicationTableWithComments(n: number): string[][] {
-
   // Vérification que l'entrée est un nombre entier positif
   // Si ce n'est pas le cas, une erreur est levée
   if (!Number.isInteger(n) || n < 1) {
@@ -741,7 +740,6 @@ function multiplicationTableWithComments(n: number): string[][] {
     // Deuxième boucle pour parcourir les entiers multiplicateurs de 1 à 10
     // On utilise une boucle for pour itérer de 1 à 10
     for (let j = 1; j <= 10; j++) {
-
       // On calcule le produit de i et j
       // On utilise l'opérateur de multiplication pour obtenir le résultat
       // On crée une chaîne de caractères au format "i x j = produit"
@@ -761,7 +759,6 @@ function multiplicationTableWithComments(n: number): string[][] {
 // On teste la fonction avec un exemple
 console.log(multiplicationTable(5));
 
-
 // ******************************
 
 // 🧠 6ter. Table de multiplication améliorée
@@ -779,7 +776,6 @@ function multiplicationTable2(n: number): string[][] {
   let i = 1;
   while (i <= n) {
     const row: string[] = [];
-  
 
     let j = 1;
     while (j <= 10) {
@@ -787,13 +783,12 @@ function multiplicationTable2(n: number): string[][] {
       j++;
     }
     arrayTable.push(row);
-    i++
+    i++;
   }
   return arrayTable;
 }
 
 console.log(multiplicationTable2(5));
-
 
 // ******************************
 
@@ -802,12 +797,10 @@ console.log(multiplicationTable2(5));
 
 // ******************************
 
-
 // Declaration de la fonction pour créer une table de multiplication
 // La fonction prend un nombre entier n en entrée
 // et retourne un tableau à deux dimensions contenant les résultats de la multiplication
 function multiplicationTable2WithComments(n: number): string[][] {
-
   // Vérification que l'entrée est un nombre entier positif
   // Si ce n'est pas le cas, une erreur est levée
   if (!Number.isInteger(n) || n < 1) {
@@ -823,18 +816,16 @@ function multiplicationTable2WithComments(n: number): string[][] {
 
   let i = 1;
   while (i <= n) {
-
     // Initialisation d'un tableau pour stocker les résultats de la multiplication pour l'entier i
     // On crée un tableau vide pour chaque ligne de la table de multiplication
     // La ligne contiendra les résultats de la multiplication de i par les entiers de 1 à 10
     const row: string[] = [];
-  
-// Deuxième boucle while pour parcourir les entiers multiplicateurs de 1 à 10
+
+    // Deuxième boucle while pour parcourir les entiers multiplicateurs de 1 à 10
     // On utilise une variable j pour itérer de 1 à 10
     // La boucle continue tant que j est inférieur ou égal à 10
     let j = 1;
     while (j <= 10) {
-
       // On calcule le produit de i et j
       // On utilise l'opérateur de multiplication pour obtenir le résultat
       // On crée une chaîne de caractères au format "i x j = produit"
@@ -847,11 +838,76 @@ function multiplicationTable2WithComments(n: number): string[][] {
     // On utilise la méthode push pour ajouter le tableau de résultats à la table
     arrayTable.push(row);
     // On incrémente i pour passer à l'entier suivant
-    i++
+    i++;
   }
-// On retourne la table de multiplication complète
+  // On retourne la table de multiplication complète
   return arrayTable;
 }
 
 // On teste la fonction avec un exemple
 console.log(multiplicationTable2WithComments(5));
+
+// ******************************
+
+// 📊 7. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+
+// ******************************
+
+function average(nbr: number[]): number {
+  if (!Array.isArray(nbr) || nbr.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau comportant au moins deux nombres  `
+    );
+  }
+  let sum: number = 0;
+
+  for (let i = 0; i < nbr.length; i++) {
+    sum = nbr[i] + sum;
+  }
+  return Math.round((sum / nbr.length) * 100) / 100;
+}
+
+console.log(average([28, 29, 132]));
+
+
+// ******************************
+
+// 📊 7. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+
+// ******************************
+
+// Declaration de la fonction pour calculer la moyenne
+// La fonction prend un tableau de nombres en entrée
+function averageWithComments(nbr: number[]): number {
+
+  // Vérification que l'entrée est un tableau et qu'il contient au moins deux nombres
+  // Si ce n'est pas le cas, une erreur est levée
+  if (!Array.isArray(nbr) || nbr.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau comportant au moins deux nombres  `
+    );
+  }
+
+  // Initialisation de la variable pour stocker la somme des nombres
+  let sum: number = 0;
+
+  // Boucle pour parcourir chaque nombre du tableau
+  // On utilise une boucle for pour itérer sur chaque élément du tableau
+  for (let i = 0; i < nbr.length; i++) {
+    // On ajoute le nombre courant à la somme
+    // On utilise l'opérateur d'addition pour accumuler la somme
+    sum = nbr[i] + sum;
+  }
+  // On calcule la moyenne en divisant la somme par le nombre d'éléments
+  // On utilise la propriété length du tableau pour obtenir le nombre d'éléments
+  // On arrondit le résultat à deux décimales en multipliant par 100, en arrondissant, puis en divisant par 100
+  // On utilise Math.round pour arrondir le résultat
+  return Math.round((sum / nbr.length) * 100) / 100;
+}
+
+// On teste la fonction avec un exemple
+console.log(average([28, 29, 132]));
