@@ -326,3 +326,26 @@ function multiplicationTable2(n: number): string[][] {
 }
 
 console.log(multiplicationTable2(4));
+
+// ******************************
+
+// 📊 7. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+
+// ******************************
+
+function average(arr: number[]): number {
+  if (!Array.isArray(arr) || arr.length < 2) {
+    throw new Error(`La saisie doit comporter à minima deux chiffres`);
+  }
+
+  let sum: number = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return Math.round((sum / arr.length)*100)/100;
+}
+
+console.log(average([15, 16, 78, 95, 85]));

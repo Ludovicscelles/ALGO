@@ -678,3 +678,33 @@ function average(nbr) {
     return Math.round((sum / nbr.length) * 100) / 100;
 }
 console.log(average([28, 29, 132]));
+// ******************************
+// 📊 7. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+// ******************************
+// Declaration de la fonction pour calculer la moyenne
+// La fonction prend un tableau de nombres en entrée
+function averageWithComments(nbr) {
+    // Vérification que l'entrée est un tableau et qu'il contient au moins deux nombres
+    // Si ce n'est pas le cas, une erreur est levée
+    if (!Array.isArray(nbr) || nbr.length < 2) {
+        throw new Error(`La saisie doit être un tableau comportant au moins deux nombres  `);
+    }
+    // Initialisation de la variable pour stocker la somme des nombres
+    let sum = 0;
+    // Boucle pour parcourir chaque nombre du tableau
+    // On utilise une boucle for pour itérer sur chaque élément du tableau
+    for (let i = 0; i < nbr.length; i++) {
+        // On ajoute le nombre courant à la somme
+        // On utilise l'opérateur d'addition pour accumuler la somme
+        sum = nbr[i] + sum;
+    }
+    // On calcule la moyenne en divisant la somme par le nombre d'éléments
+    // On utilise la propriété length du tableau pour obtenir le nombre d'éléments
+    // On arrondit le résultat à deux décimales en multipliant par 100, en arrondissant, puis en divisant par 100
+    // On utilise Math.round pour arrondir le résultat
+    return Math.round((sum / nbr.length) * 100) / 100;
+}
+// On teste la fonction avec un exemple
+console.log(average([28, 29, 132]));

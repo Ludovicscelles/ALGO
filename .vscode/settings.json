@@ -6,12 +6,14 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "typescript": true,
+    "typescript": false,
     "css": false,
     "sql": false,
     "ignore": true,
     "typescriptreact": true,
     "javascript": true,
-    "javascriptreact": true
+    "javascriptreact": true,
+    "json": true,
+    "jsonc": true
   }
 }
