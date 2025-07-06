@@ -873,7 +873,7 @@ console.log(average([28, 29, 132]));
 
 // ******************************
 
-// 📊 7. Calcul de la moyenne
+// 📊 7bis. Calcul de la moyenne
 // Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
 // 📌 Bonus : Arrondir à 2 décimales.
 
@@ -912,7 +912,7 @@ console.log(average([28, 29, 132]));
 
 // ******************************
 
-// 📊 7. Calcul de la moyenne
+// 📊 7ter. Calcul de la moyenne
 // Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
 // 📌 Bonus : Arrondir à 2 décimales.
 
@@ -936,3 +936,47 @@ function average2(arr: number[]): number {
 }
 
 console.log(average2([15, 15, 235, 25, 18, 27, 45, 51.15]));
+
+
+// ******************************
+
+// 📊 7quadri. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+
+// ******************************
+
+
+// Declaration de la fonction pour calculer la moyenne
+// La fonction prend un tableau de nombres en entrée
+function average2WithComments(arr: number[]): number {
+  // Vérification que l'entrée est un tableau et qu'il contient au moins deux nombres
+  // Si ce n'est pas le cas, une erreur est levée
+  if (!Array.isArray(arr) || arr.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau comportant à minima deux nombres`
+    );
+  }
+
+  // Initialisation des variables pour l'itération et la somme
+  let i = 0;
+  let sum: number = 0;
+
+  // Boucle while pour parcourir chaque élément du tableau
+  // On utilise une boucle while pour itérer tant que i est inférieur à la longueur du tableau
+  while (i < arr.length) {
+    // On ajoute l'élément courant à la somme
+    // On utilise l'opérateur d'addition pour accumuler la somme
+    sum += arr[i];
+    // On incrémente i pour passer à l'élément suivant
+    i++;
+  }
+  // On calcule la moyenne en divisant la somme par le nombre d'éléments
+  // On utilise la propriété length du tableau pour obtenir le nombre d'éléments
+  // On utilise Math.round pour arrondir le résultat
+  // On arrondit le résultat à deux décimales en multipliant par 100, en arrondissant, puis en divisant par 100
+  return Math.round((sum / arr.length) * 100) / 100;
+}
+
+// On teste la fonction avec un exemple
+console.log(average2WithComments([15, 15, 22, 25, 18, 27, 45, 51.15]));
