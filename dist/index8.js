@@ -251,3 +251,21 @@ function average(arr) {
     return Math.round((sum / arr.length) * 100) / 100;
 }
 console.log(average([15, 16, 78, 95, 85]));
+// ******************************
+// 📊 7bis. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+// ******************************
+function average2(arr) {
+    if (!Array.isArray(arr) || arr.length < 2) {
+        throw new Error(`La saisie doit être un tableau contenant à minima deux nombres`);
+    }
+    let i = 0;
+    let sum = 0;
+    while (i < arr.length) {
+        sum += arr[i];
+        i++;
+    }
+    return Math.round((sum / arr.length) * 100) / 100;
+}
+console.log(average2([15, 15.15, 58, 598]));
