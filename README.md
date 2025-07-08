@@ -112,7 +112,6 @@ Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour 
 🧩 10. Trouver tous les multiples de 3 ou 5 jusqu'à n
 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
 
-Souhaites-tu que je t’en propose un pour commencer ? Ou tu préfères choisir parmi ceux-là ?
 
 
 
