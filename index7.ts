@@ -1008,7 +1008,6 @@ function compressString(str: string): string {
 
 console.log(compressString("aaabbc"));
 
-
 // ******************************
 
 // 📦 8bis. Compresser une chaîne (Run-length encoding)
@@ -1019,7 +1018,6 @@ console.log(compressString("aaabbc"));
 
 // Declaration de la fonction pour compresser une chaîne
 function compressStringWithComments(str: string): string {
-
   // Vérification que l'entrée est une chaîne de caractères
   // Si ce n'est pas le cas, une erreur est levée
   if (typeof str !== "string") {
@@ -1032,16 +1030,15 @@ function compressStringWithComments(str: string): string {
   let compressed = "";
   let count = 1;
 
-
   // Boucle pour parcourir chaque caractère de la chaîne
   for (let i = 0; i < str.length; i++) {
     // On vérifie si le caractère courant est égal au caractère suivant
     // Si c'est le cas, on incrémente le compteur
     if (str[i] === str[i + 1]) {
       count++;
-    // Si le caractère courant est différent du suivant, on ajoute le caractère et le compteur à la chaîne compressée
-    // On utilise l'opérateur de concaténation pour ajouter le caractère et le nombre d'occurrences
-    // On réinitialise le compteur à 1 pour le prochain caractère
+      // Si le caractère courant est différent du suivant, on ajoute le caractère et le compteur à la chaîne compressée
+      // On utilise l'opérateur de concaténation pour ajouter le caractère et le nombre d'occurrences
+      // On réinitialise le compteur à 1 pour le prochain caractère
     } else {
       compressed += str[i] + count;
       count = 1;
@@ -1054,3 +1051,87 @@ function compressStringWithComments(str: string): string {
 
 // On teste la fonction avec un exemple
 console.log(compressStringWithComments("aaabbc"));
+
+// ******************************
+
+// 📦 8ter. Compresser une chaîne (Run-length encoding)
+// Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+// 📌 Exemple : "aaabbc" → "a3b2c1"
+
+// ******************************
+
+function compressAString(str: string): string {
+  if (typeof str !== "string") {
+    throw new Error(`La saisie doit être une chaîne de caractères`);
+  }
+
+  let compress: string = "";
+  let count: number = 1;
+  let i: number = 0;
+
+  while (i < str.length) {
+    if (str[i] === str[i + 1]) {
+      count++;
+    } else {
+      compress += str[i] + count;
+      count = 1;
+    }
+    i++;
+  }
+  return compress;
+}
+
+console.log(compressAString("pomme"));
+console.log(compressAString("allée"));
+console.log(compressAString("balle"));
+
+// ******************************
+
+// 📦 8quater. Compresser une chaîne (Run-length encoding)
+// Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+// 📌 Exemple : "aaabbc" → "a3b2c1"
+
+// ******************************
+
+// Declaration de la fonction pour compresser une chaîne
+function compressAStringWithComments(str: string): string {
+
+  // Vérification que l'entrée est une chaîne de caractères
+  // Si ce n'est pas le cas, une erreur est levée
+  if (typeof str !== "string") {
+    throw new Error(`La saisie doit être une chaîne de caractères`);
+  }
+
+  // Initialisation des variables pour stocker la chaîne compressée et le compteur
+  let compress: string = "";
+  let count: number = 1;
+  // Initialisation de l'index pour parcourir la chaîne
+  let i: number = 0;
+
+  // Boucle while pour parcourir chaque caractère de la chaîne
+  // La boucle continue tant que i est inférieur à la longueur de la chaîne
+  while (i < str.length) {
+    // On vérifie si le caractère courant est égal au caractère suivant
+    // Si c'est le cas, on incrémente le compteur
+    if (str[i] === str[i + 1]) {
+      count++;
+      // Si le caractère courant est différent du suivant, on ajoute le caractère et le compteur à la chaîne compressée
+      // On utilise l'opérateur de concaténation pour ajouter le caractère et le nombre d'occurrences
+      // On réinitialise le compteur à 1 pour le prochain caractère
+    } else {
+      compress += str[i] + count;
+      count = 1;
+    }
+    // On incrémente l'index pour passer au caractère suivant
+    // Cela permet de parcourir toute la chaîne jusqu'à la fin
+    i++;
+  }
+  // On retourne la chaîne compressée
+  // La chaîne compressée contient chaque caractère suivi du nombre d'occurrences consécutives
+  return compress;
+}
+
+// On teste la fonction avec des exemples
+console.log(compressAStringWithComments("pomme"));
+console.log(compressAStringWithComments("allée"));
+console.log(compressAStringWithComments("balle"));
