@@ -968,3 +968,63 @@ function findSecondBiggestNumberWithComments(arr) {
 const arr = [105, 122, 124, 200, 198, 101, 107];
 const secondLargestNumber = findSecondBiggestNumberWithComments(arr);
 console.log(`Le deuxième plus grand nombre est ${secondLargestNumber}`);
+// *************************************************
+// 🎯 9ter. Trouver le deuxième plus grand nombre
+// Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+// 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+// *************************************************
+function secondBiggestNumber(nbrArr) {
+    if (!Array.isArray(nbrArr) || nbrArr.length < 2) {
+        throw new Error(`La saisie doit être un tableau comportant au minimum deux chiffres`);
+    }
+    let biggestNumber = nbrArr[0];
+    let secondBiggestNumber = -Infinity;
+    let i = 1;
+    while (i < nbrArr.length) {
+        if (nbrArr[i] > biggestNumber) {
+            secondBiggestNumber = biggestNumber;
+            biggestNumber = nbrArr[i];
+        }
+        else if (nbrArr[i] < biggestNumber && nbrArr[i] > secondBiggestNumber) {
+            secondBiggestNumber = nbrArr[i];
+        }
+        i++;
+    }
+    if (secondBiggestNumber === -Infinity) {
+        throw new Error(`Il n'existe pas de deuxième plus grand nombre distinct`);
+    }
+    return secondBiggestNumber;
+}
+let nbrArr = [255, 252, 125, 158, 254, 169, 111];
+let secondBiggest = secondBiggestNumber(nbrArr);
+console.log(`Le deuxième plus grand nombre est ${secondBiggest}`);
+// *************************************************
+// 🎯 9quater. Trouver le deuxième plus grand nombre
+// Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+// 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+// *************************************************
+function secondBiggestNumberWithComments(nbrArr) {
+    if (!Array.isArray(nbrArr) || nbrArr.length < 2) {
+        throw new Error(`La saisie doit être un tableau comportant au minimum deux chiffres`);
+    }
+    let biggestNumber = nbrArr[0];
+    let secondBiggestNumber = -Infinity;
+    let i = 1;
+    while (i < nbrArr.length) {
+        if (nbrArr[i] > biggestNumber) {
+            secondBiggestNumber = biggestNumber;
+            biggestNumber = nbrArr[i];
+        }
+        else if (nbrArr[i] < biggestNumber && nbrArr[i] > secondBiggestNumber) {
+            secondBiggestNumber = nbrArr[i];
+        }
+        i++;
+    }
+    if (secondBiggestNumber === -Infinity) {
+        throw new Error(`Il n'existe pas de deuxième plus grand nombre distinct`);
+    }
+    return secondBiggestNumber;
+}
+let nbrArr2 = [123, 252, 178, 472, 314, 222, 104];
+let secondBiggest2 = secondBiggestNumberWithComments(nbrArr2);
+console.log(`Le deuxième plus grand nombre est ${secondBiggest2}`);

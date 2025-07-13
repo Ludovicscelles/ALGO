@@ -1226,3 +1226,115 @@ function findSecondBiggestNumberWithComments(arr: number[]): number {
 const arr: number[] = [105, 122, 124, 200, 198, 101, 107];
 const secondLargestNumber: number = findSecondBiggestNumberWithComments(arr);
 console.log(`Le deuxième plus grand nombre est ${secondLargestNumber}`);
+
+// *************************************************
+
+// 🎯 9ter. Trouver le deuxième plus grand nombre
+// Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+// 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+
+// *************************************************
+
+function secondBiggestNumber(nbrArr: number[]): number {
+  if (!Array.isArray(nbrArr) || nbrArr.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau comportant au minimum deux chiffres`
+    );
+  }
+
+  let biggestNumber: number = nbrArr[0];
+  let secondBiggestNumber: number = -Infinity;
+  let i: number = 1;
+
+  while (i < nbrArr.length) {
+    if (nbrArr[i] > biggestNumber) {
+      secondBiggestNumber = biggestNumber;
+      biggestNumber = nbrArr[i];
+    } else if (nbrArr[i] < biggestNumber && nbrArr[i] > secondBiggestNumber) {
+      secondBiggestNumber = nbrArr[i];
+    }
+    i++;
+  }
+  if (secondBiggestNumber === -Infinity) {
+    throw new Error(`Il n'existe pas de deuxième plus grand nombre distinct`);
+  }
+  return secondBiggestNumber;
+}
+
+let nbrArr: number[] = [255, 252, 125, 158, 254, 169, 111];
+let secondBiggest: number = secondBiggestNumber(nbrArr);
+console.log(`Le deuxième plus grand nombre est ${secondBiggest}`);
+
+// *************************************************
+
+// 🎯 9quater. Trouver le deuxième plus grand nombre
+// Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+// 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+
+// *************************************************
+
+// Declaration de la fonction pour trouver le deuxième plus grand nombre
+// La fonction prend un tableau de nombres en entrée
+function secondBiggestNumberWithComments(nbrArr: number[]): number {
+
+  // Vérification que l'entrée est un tableau et qu'il contient au moins deux nombres
+  // Si ce n'est pas le cas, une erreur est levée
+  if (!Array.isArray(nbrArr) || nbrArr.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau comportant au minimum deux chiffres`
+    );
+  }
+
+  // Initialisation des variables pour stocker le plus grand et le deuxième plus grand nombre
+  // On initialise biggestNumber avec le premier élément du tableau
+  // On initialise secondBiggestNumber avec -Infinity pour s'assurer qu'il sera remplacé
+  let biggestNumber: number = nbrArr[0];
+  let secondBiggestNumber: number = -Infinity;
+
+  // Initialisation de l'index pour parcourir le tableau
+  let i: number = 1;
+
+  // Boucle while pour parcourir les éléments du tableau à partir du deuxième élément
+  // On utilise une boucle while pour itérer tant que i est inférieur à la longueur du tableau
+  // On commence à i = 1 car on a déjà initialisé biggestNumber avec le premier élément
+  // Cela permet de comparer les éléments suivants avec le premier élément
+  // On utilise nbrArr.length pour obtenir la longueur du tableau
+  while (i < nbrArr.length) {
+    // On vérifie si l'élément courant est plus grand que le plus grand nombre trouvé jusqu'à présent
+    // Si c'est le cas, on met à jour secondBiggestNumber avec la valeur de biggestNumber
+    // et on met à jour biggestNumber avec l'élément courant
+    if (nbrArr[i] > biggestNumber) {
+      secondBiggestNumber = biggestNumber;
+      biggestNumber = nbrArr[i];
+      // Si l'élément courant n'est pas plus grand que biggestNumber mais est plus grand que secondBiggestNumber
+      // On met à jour secondBiggestNumber avec l'élément courant
+    } else if (nbrArr[i] < biggestNumber && nbrArr[i] > secondBiggestNumber) {
+      secondBiggestNumber = nbrArr[i];
+    }
+    // On incrémente l'index pour passer à l'élément suivant
+    // Cela permet de parcourir toute la chaîne jusqu'à la fin
+    i++;
+  }
+
+  // Une fois la boucle terminée, on vérifie si secondBiggestNumber a été mis à jour
+  // Si secondBiggestNumber est toujours -Infinity, cela signifie qu'il n'y a pas de deuxième plus grand nombre distinct
+  // Dans ce cas, on lève une erreur
+  // On utilise une condition pour vérifier si secondBiggestNumber est égal à -Infinity
+  // Si c'est le cas, on lève une erreur avec un message approprié
+  if (secondBiggestNumber === -Infinity) {
+    throw new Error(`Il n'existe pas de deuxième plus grand nombre distinct`);
+  }
+
+  // On retourne le deuxième plus grand nombre
+  // Le deuxième plus grand nombre est stocké dans la variable secondBiggestNumber
+  return secondBiggestNumber;
+}
+
+// On teste la fonction avec un exemple
+// On crée un tableau de nombres pour tester la fonction
+// On utilise un tableau avec des nombres variés pour vérifier le bon fonctionnement de la fonction
+// On utilise nbrArr2 pour tester la fonction avec un autre ensemble de nombres
+// On utilise un tableau avec des nombres variés pour vérifier le bon fonctionnement de la fonction
+let nbrArr2: number[] = [123, 252, 178, 472, 314, 222, 104];
+let secondBiggest2: number = secondBiggestNumberWithComments(nbrArr2);
+console.log(`Le deuxième plus grand nombre est ${secondBiggest2}`);
