@@ -1163,7 +1163,7 @@ function findSecondBiggestNumber(array: number[]): number {
   return secondLargest;
 }
 
-const array: number[] = [5, 18, 19, 29, 22, 23, 34];
+const array: number[] = [5, 18, 19, 29, 22, 23, 34, 15];
 const secondLargest: number = findSecondBiggestNumber(array);
 console.log(`Le deuxième plus grand nombre est ${secondLargest}`);
 
@@ -1211,7 +1211,7 @@ function findSecondBiggestNumberWithComments(arr: number[]): number {
       // On met à jour secondLargest avec l'élément courant
       // On utilise l'opérateur de comparaison pour vérifier si l'élément courant est inférieur
       // à largest mais supérieur à secondLargest
-    } else if (arr[i] < largest || arr[i] > secondLargest) {
+    } else if (arr[i] < largest && arr[i] > secondLargest) {
       secondLargest = arr[i];
     }
   }

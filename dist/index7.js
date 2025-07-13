@@ -259,7 +259,7 @@ function GCD3(nbr1, nbr2) {
     let smaller = Math.min(absNbr1, absNbr2);
     let hcf = 1;
     for (let i = 1; i <= smaller; i++) {
-        if (absNbr1 % i === 0 && absNbr2 % i === 0) {
+        if (absNbr1 % i === 0 || absNbr2 % i === 0) {
             hcf = i;
         }
     }
@@ -370,7 +370,7 @@ function GCD3WithComments(nbr1, nbr2) {
     let hcf = 1;
     // Boucle pour trouver le PGCD en itérant jusqu'au plus petit des deux nombres
     for (let i = 1; i <= smaller; i++) {
-        if (absNbr1 % i === 0 && absNbr2 % i === 0) {
+        if (absNbr1 % i === 0 || absNbr2 % i === 0) {
             hcf = i;
         }
     }
@@ -897,7 +897,7 @@ console.log(compressAStringWithComments("balle"));
 // 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
 // *************************************************
 function findSecondBiggestNumber(array) {
-    if (!Array.isArray(array) && array < 2) {
+    if (!Array.isArray(array) || array.length < 2) {
         throw new Error(`La saisie doit être un tableau comportant un minum de deux nombres`);
     }
     let largest = array[0];
@@ -907,12 +907,64 @@ function findSecondBiggestNumber(array) {
             secondLargest = largest;
             largest = array[i];
         }
-        else if (array[i] < largest && array[i] > secondLargest) {
+        else if (array[i] < largest || array[i] > secondLargest) {
             secondLargest = array[i];
         }
     }
     return secondLargest;
 }
-const array = [5, 18, 19, 29, 22, 23, 34];
+const array = [5, 18, 19, 29, 22, 23, 34, 15];
 const secondLargest = findSecondBiggestNumber(array);
 console.log(`Le deuxième plus grand nombre est ${secondLargest}`);
+// *************************************************
+// 🎯 9bis. Trouver le deuxième plus grand nombre
+// Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+// 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+// *************************************************
+// Declaration de la fonction pour trouver le deuxième plus grand nombre
+// La fonction prend un tableau de nombres en entrée
+function findSecondBiggestNumberWithComments(arr) {
+    // Vérification que l'entrée est un tableau et qu'il contient au moins deux nombres
+    // Si ce n'est pas le cas, une erreur est levée
+    // On utilise Array.isArray pour vérifier si arr est un tableau
+    // On utilise la propriété length pour vérifier que le tableau a au moins deux éléments
+    if (!Array.isArray(arr) || arr.length < 2) {
+        throw new Error(`La saisie doit être un tableau comportant un minum de deux nombres`);
+    }
+    // Initialisation des variables pour stocker le plus grand et le deuxième plus grand nombre
+    // On initialise largest avec le premier élément du tableau
+    // On initialise secondLargest avec -Infinity pour s'assurer qu'il sera remplacé par un nombre plus grand
+    // On utilise -Infinity pour s'assurer que secondLargest sera remplacé par un nombre du tableau
+    // Cela permet de gérer les cas où tous les nombres du tableau sont négatifs
+    let largest = arr[0];
+    let secondLargest = -Infinity;
+    // Boucle pour parcourir les éléments du tableau à partir du deuxième élément
+    // On utilise une boucle for pour itérer à partir de l'index 1 jusqu'à la fin du tableau
+    // On commence à i = 1 car on a déjà initialisé largest avec le premier élément
+    // Cela permet de comparer les éléments suivants avec le premier élément
+    for (let i = 1; i < arr.length; i++) {
+        // On vérifie si l'élément courant est plus grand que le plus grand nombre trouvé jusqu'à présent
+        // Si c'est le cas, on met à jour secondLargest avec la valeur de largest
+        // et on met à jour largest avec l'élément courant
+        if (arr[i] > largest) {
+            secondLargest = largest;
+            largest = array[i];
+            // Si l'élément courant n'est pas plus grand que largest mais est plus grand que secondLargest
+            // On met à jour secondLargest avec l'élément courant
+            // On utilise l'opérateur de comparaison pour vérifier si l'élément courant est inférieur
+            // à largest mais supérieur à secondLargest
+        }
+        else if (arr[i] < largest && arr[i] > secondLargest) {
+            secondLargest = arr[i];
+        }
+    }
+    // Une fois la boucle terminée, on retourne le deuxième plus grand nombre
+    // Le deuxième plus grand nombre est stocké dans la variable secondLargest
+    return secondLargest;
+}
+// On teste la fonction avec un exemple
+// On crée un tableau de nombres pour tester la fonction
+// On utilise un tableau avec des nombres variés pour vérifier le bon fonctionnement de la fonction
+const arr = [105, 122, 124, 200, 198, 101, 107];
+const secondLargestNumber = findSecondBiggestNumberWithComments(arr);
+console.log(`Le deuxième plus grand nombre est ${secondLargestNumber}`);
