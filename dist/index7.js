@@ -1060,3 +1060,54 @@ function secondBiggestNumberWithComments(nbrArr) {
 let nbrArr2 = [123, 252, 178, 472, 314, 222, 104];
 let secondBiggest2 = secondBiggestNumberWithComments(nbrArr2);
 console.log(`Le deuxième plus grand nombre est ${secondBiggest2}`);
+// ********************************************************
+// 🧩 10. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+// ********************************************************
+function multipleOf3Or5(n) {
+    if (!Number.isInteger(n)) {
+        throw new Error(`L'entrée doit être un nombre entier`);
+    }
+    let arrMutipleOf3Or5 = [];
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            arrMutipleOf3Or5.push(i);
+        }
+    }
+    return arrMutipleOf3Or5;
+}
+let n = 10;
+let arrMutipleOf3Or5 = multipleOf3Or5(n);
+console.log(arrMutipleOf3Or5);
+// ********************************************************
+// 🧩 10bis. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+// ********************************************************
+// Declaration de la fonction pour trouver les multiples de 3 ou 5 jusqu'à n
+// La fonction prend un nombre entier n en entrée
+function multipleOf3Or5WithComments(n) {
+    // Vérification que l'entrée est un nombre entier
+    // Si ce n'est pas le cas, une erreur est levée
+    if (!Number.isInteger(n)) {
+        throw new Error(`L'entrée doit être un nombre entier`);
+    }
+    // Initialisation d'un tableau pour stocker les multiples de 3 ou 5
+    // On crée un tableau vide pour stocker les résultats
+    let arrMutipleOf3Or5 = [];
+    // Boucle pour parcourir les entiers de 1 à n
+    // On utilise une boucle for pour itérer de 1 à n
+    for (let i = 1; i <= n; i++) {
+        // On vérifie si l'entier courant est un multiple de 3 ou de 5
+        // On utilise l'opérateur modulo (%) pour vérifier si i est divisible par 3 ou 5
+        // Si i est divisible par 3 ou 5, on l'ajoute
+        if (i % 3 === 0 || i % 5 === 0) {
+            arrMutipleOf3Or5.push(i);
+        }
+    }
+    // On retourne le tableau contenant les multiples de 3 ou 5
+    // Le tableau contient tous les entiers de 1 à n qui sont des multiples de
+    return arrMutipleOf3Or5;
+}
+let n2 = 20;
+let arrMutipleOf3Or5v2 = multipleOf3Or5(n2);
+console.log(arrMutipleOf3Or5v2);
