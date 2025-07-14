@@ -509,6 +509,32 @@ function secondLargestNumber2(arrNbr: number[]): number {
   return secondNumber;
 }
 
-let arrNbr: number[] = [18, 18, 18, 18, 18, 18];
+let arrNbr: number[] = [18, 125, 122, 102, 102, 101];
 let secondNumber: number = secondLargestNumber2(arrNbr);
 console.log(secondNumber);
+
+// ********************************************************
+
+// 🧩 10. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+
+// *********************************************************
+
+function multipleOf3Or5(n: number): number[] {
+  if (!Number.isInteger(n)) {
+    throw new Error(`La saisie doit être un nombre entier`);
+  }
+
+  let multipleOf3Or5Array: number[] = [];
+
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      multipleOf3Or5Array.push(i);
+    }
+  }
+  return multipleOf3Or5Array;
+}
+
+let n: number = 10;
+let multipleOf3Or5Array: number[] = multipleOf3Or5(n);
+console.log(multipleOf3Or5Array);
