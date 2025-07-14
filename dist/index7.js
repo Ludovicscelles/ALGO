@@ -1111,3 +1111,24 @@ function multipleOf3Or5WithComments(n) {
 let n2 = 20;
 let arrMutipleOf3Or5v2 = multipleOf3Or5(n2);
 console.log(arrMutipleOf3Or5v2);
+// ********************************************************
+// 🧩 10ter. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+// ********************************************************
+function multipleOf3Or5While(n) {
+    if (!Number.isInteger(n)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    let arrMutipleOf3Or5While = [];
+    let i = 1;
+    while (i <= n) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            arrMutipleOf3Or5While.push(i);
+        }
+        i++;
+    }
+    return arrMutipleOf3Or5While;
+}
+let n3 = 10;
+let arrMutipleOf3Or5While = multipleOf3Or5While(n3);
+console.log(arrMutipleOf3Or5While);

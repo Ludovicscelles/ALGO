@@ -1374,7 +1374,6 @@ console.log(arrMutipleOf3Or5);
 // Declaration de la fonction pour trouver les multiples de 3 ou 5 jusqu'à n
 // La fonction prend un nombre entier n en entrée
 function multipleOf3Or5WithComments(n: number): number[] {
-
   // Vérification que l'entrée est un nombre entier
   // Si ce n'est pas le cas, une erreur est levée
   if (!Number.isInteger(n)) {
@@ -1403,3 +1402,82 @@ function multipleOf3Or5WithComments(n: number): number[] {
 let n2: number = 20;
 let arrMutipleOf3Or5v2: number[] = multipleOf3Or5(n2);
 console.log(arrMutipleOf3Or5v2);
+
+// ********************************************************
+
+// 🧩 10ter. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+
+// ********************************************************
+
+function multipleOf3Or5While(n: number): number[] {
+  if (!Number.isInteger(n)) {
+    throw new Error(`La saisie doit être un nombre entier`);
+  }
+
+  let arrMutipleOf3Or5While: number[] = [];
+
+  let i = 1;
+
+  while (i <= n) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      arrMutipleOf3Or5While.push(i);
+    }
+    i++;
+  }
+  return arrMutipleOf3Or5While;
+}
+
+let n3: number = 10;
+let arrMutipleOf3Or5While: number[] = multipleOf3Or5While(n3);
+console.log(arrMutipleOf3Or5While);
+
+// ********************************************************
+
+// 🧩 10quater. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+
+// ********************************************************
+
+// Declaration de la fonction pour trouver les multiples de 3 ou 5 jusqu'à n
+// La fonction prend un nombre entier n en entrée
+function multipleOf3Or5WhileWithComments(n: number): number[] {
+
+  // Vérification que l'entrée est un nombre entier
+  // Si ce n'est pas le cas, une erreur est levée
+  if (!Number.isInteger(n)) {
+    throw new Error(`La saisie doit être un nombre entier`);
+  }
+
+  // Initialisation d'un tableau pour stocker les multiples de 3 ou 5
+  // On crée un tableau vide pour stocker les résultats
+  let arrMutipleOf3Or5While: number[] = [];
+
+  // Initialisation d'une variable pour l'itération
+  // On initialise i à 1 pour commencer à parcourir les entiers à partir de 1
+  let i = 1;
+
+  // Boucle while pour parcourir les entiers de 1 à n
+  // La boucle continue tant que i est inférieur ou égal à n
+  while (i <= n) {
+
+    // On vérifie si l'entier courant est un multiple de 3 ou de 5
+    // On utilise l'opérateur modulo (%) pour vérifier si i est divisible par 3 ou 5
+    // Si i est divisible par 3 ou 5, on l'ajoute
+    if (i % 3 === 0 || i % 5 === 0) {
+      arrMutipleOf3Or5While.push(i);
+    }
+
+    // On incrémente i pour passer à l'entier suivant
+    i++;
+  }
+
+  // On retourne le tableau contenant les multiples de 3 ou 5
+  return arrMutipleOf3Or5While;
+}
+
+// On teste la fonction avec un exemple
+// On crée un nombre entier n pour tester la fonction
+let n4: number = 20;
+let arrMutipleOf3Or5While2: number[] = multipleOf3Or5WhileWithComments(n4);
+console.log(arrMutipleOf3Or5While2);
