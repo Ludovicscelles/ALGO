@@ -398,3 +398,24 @@ function multipleOf3Or5(n) {
 let n = 10;
 let multipleOf3Or5Array = multipleOf3Or5(n);
 console.log(multipleOf3Or5Array);
+// ********************************************************
+// 🧩 10bis. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+// *********************************************************
+function multipleOf3Or5While(n) {
+    if (!Number.isInteger(n)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    let arrMutipleOf3Or5While = [];
+    let i = 1;
+    while (i <= n) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            arrMutipleOf3Or5While.push(i);
+        }
+        i++;
+    }
+    return arrMutipleOf3Or5While;
+}
+let n2 = 20;
+let arrMutipleOf3Or5While = multipleOf3Or5While(n2);
+console.log(arrMutipleOf3Or5While);
