@@ -26,3 +26,35 @@ function sumEvenDigit(nbr: number): number {
 let nbr: number = 11;
 let sumEvenNumbers: number = sumEvenDigit(nbr);
 console.log(sumEvenNumbers);
+
+// *******************************
+
+// 🔢 1bis. Somme des chiffres pairs
+// Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
+// 📌 Exemple : 2489 → 2 + 4 + 8 = 14
+
+// *******************************
+
+function sumEvenDigit2(nbr: number): number {
+  if (!Number.isInteger(nbr)) {
+    throw new Error(`La saisie doit être un nombre entier`);
+  }
+
+  let sum: number = 0;
+  let nbrStr: string = nbr.toString();
+
+  let i = 0;
+
+  while (i < nbrStr.length) {
+    let digit: number = parseInt(nbrStr[i]);
+    if (digit % 2 === 0) {
+      sum += digit;
+    }
+    i++;
+  }
+  return sum;
+}
+
+let nbr2: number = 1212;
+let sumEvenNumbers2: number = sumEvenDigit2(nbr2);
+console.log(sumEvenNumbers2);
