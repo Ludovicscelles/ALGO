@@ -13,7 +13,7 @@
     "typescriptreact": true,
     "javascript": true,
     "javascriptreact": true,
-    "json": true,
+    "json": false,
     "jsonc": true
   }
 }
