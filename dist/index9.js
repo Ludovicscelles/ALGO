@@ -66,3 +66,23 @@ function reverseNumber(nbr) {
 let nbrToReverse = -1234;
 let reversedNumber = reverseNumber(nbrToReverse);
 console.log(reversedNumber);
+// *******************************
+// 🔁 2bis. Inverser un nombre
+// Écris une fonction qui prend un entier et retourne son inverse.
+// 📌 Exemple : 1234 → 4321
+// (sans convertir en string si tu veux un vrai défi)
+// *******************************
+function reverseNumber2(nbr) {
+    if (!Number.isInteger(nbr)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    let absNbr = Math.abs(nbr);
+    let reversedNumber = 0;
+    for (; absNbr > 0; absNbr = Math.floor(absNbr / 10)) {
+        reversedNumber = (absNbr % 10) + reversedNumber * 10;
+    }
+    return nbr < 0 ? -reversedNumber : reversedNumber;
+}
+let nbrToReversed = -4321;
+let reversedNumber2 = reverseNumber2(nbrToReversed);
+console.log(reversedNumber2);
