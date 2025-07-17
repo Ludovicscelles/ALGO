@@ -11,7 +11,7 @@
     "sql": false,
     "ignore": true,
     "typescriptreact": true,
-    "javascript": true,
+    "javascript": false,
     "javascriptreact": true,
     "json": false,
     "jsonc": true

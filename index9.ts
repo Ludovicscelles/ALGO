@@ -55,8 +55,8 @@ function sumEvenDigit2(nbr: number): number {
   return sum;
 }
 
-let nbr2: number = 1212;
-let sumEvenNumbers2: number = sumEvenDigit2(nbr2);
+let nb2: number = 1212;
+let sumEvenNumbers2: number = sumEvenDigit2(nb2);
 console.log(sumEvenNumbers2);
 
 // *******************************
@@ -109,9 +109,40 @@ function reverseNumber2(nbr: number): number {
   for (; absNbr > 0; absNbr = Math.floor(absNbr / 10)) {
     reversedNumber = (absNbr % 10) + reversedNumber * 10;
   }
-  return nbr < 0 ? -reversedNumber : reversedNumber;
+  return nbr < 0 ? -reverseNumber : reversedNumber;
 }
 
 let nbrToReversed: number = -4321;
 let reversedNumber2: number = reverseNumber2(nbrToReversed);
-console.log(reversedNumber2);
+console.log(reversedNumber);
+
+// *******************************
+
+// 🧮 3. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+
+// *******************************
+
+function CGD(nbr1: number, nbr2: number): number {
+  if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+    throw new Error(
+      `La saisie des deux chiffres doivent être des nombres entiers`
+    );
+  }
+
+  let smaller: number = Math.min(nbr1, nbr2);
+  let CGD: number = 1;
+
+  for (let i = 1; i <= smaller; i++) {
+    if (nbr1 % i === 0 && nbr2 % i === 0) {
+      CGD = i;
+    }
+  }
+  return CGD;
+}
+
+let nbr1: number = 242;
+let nbr2: number = 264;
+let HCF: number = CGD(nbr1, nbr2);
+console.log(HCF);
