@@ -114,7 +114,7 @@ console.log(result);
 // 📌 Exemple : PGCD(48, 18) → 6
 // *******************************
 function GCD2(nb1, nb2) {
-    if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+    if (!Number.isInteger(nb1) || !Number.isInteger(nb2)) {
         throw new Error(`La saisie doit comporter deux chiffres entiers`);
     }
     let smaller = Math.min(nb1, nb2);
@@ -132,3 +132,23 @@ let number1 = 242;
 let number2 = 110;
 let resultGCD2 = GCD2(number1, number2);
 console.log(resultGCD2);
+// *******************************
+// 🧮 3bis. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+// *******************************
+function GCD3(nb1, nb2) {
+    if (!Number.isInteger(nb1) || !Number.isInteger(nb2)) {
+        throw new Error(`La saisie doit comporter deux nombres entiers`);
+    }
+    while (nb2 !== 0) {
+        const temp = nb2;
+        nb2 = nb1 % nb2;
+        nb1 = temp;
+    }
+    return nb1;
+}
+let num1 = 48;
+let num2 = 18;
+let resultCGD3 = GCD3(num1, num2);
+console.log(resultCGD3);

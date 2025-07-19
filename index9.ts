@@ -175,3 +175,29 @@ let number1: number = 242;
 let number2: number = 110;
 let resultGCD2: number = GCD2(number1, number2);
 console.log(resultGCD2);
+
+// *******************************
+
+// 🧮 3bis. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+
+// *******************************
+
+function GCD3(nb1: number, nb2: number): number {
+  if (!Number.isInteger(nb1) || !Number.isInteger(nb2)) {
+    throw new Error(`La saisie doit comporter deux nombres entiers`);
+  }
+
+  while (nb2 !== 0) {
+    const temp: number = nb2;
+    nb2 = nb1 % nb2;
+    nb1 = temp;
+  }
+  return nb1;
+}
+
+let num1: number = 48;
+let num2: number = 18;
+let resultCGD3: number = GCD3(num1, num2);
+console.log(resultCGD3);
