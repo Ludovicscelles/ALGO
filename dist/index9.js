@@ -91,20 +91,44 @@ console.log(reversedNumber);
 // Écris une fonction qui retourne le PGCD de deux nombres entiers.
 // 📌 Exemple : PGCD(48, 18) → 6
 // *******************************
-function CGD(nbr1, nbr2) {
+function GCD(nbr1, nbr2) {
     if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
-        throw new Error(`La saisie des deux chiffres doivent être des nombres entiers`);
+        throw new Error(`La saisie doit comporter deux nombres entiers`);
     }
     let smaller = Math.min(nbr1, nbr2);
-    let CGD = 1;
+    let gcd = 1;
     for (let i = 1; i <= smaller; i++) {
         if (nbr1 % i === 0 && nbr2 % i === 0) {
-            CGD = i;
+            gcd = i;
         }
     }
-    return Math.abs(CGD);
+    return gcd;
 }
-let nbr1 = 242;
-let nbr2 = 264;
-let HCF = CGD(nbr1, nbr2);
-console.log(HCF);
+let nbr1 = 24;
+let nbr2 = 8;
+let result = GCD(nbr1, nbr2);
+console.log(result);
+// *******************************
+// 🧮 3bis. PGCD (Plus Grand Commun Diviseur)
+// Écris une fonction qui retourne le PGCD de deux nombres entiers.
+// 📌 Exemple : PGCD(48, 18) → 6
+// *******************************
+function GCD2(nb1, nb2) {
+    if (!Number.isInteger(nbr1) || !Number.isInteger(nbr2)) {
+        throw new Error(`La saisie doit comporter deux chiffres entiers`);
+    }
+    let smaller = Math.min(nb1, nb2);
+    let gcd = 1;
+    let i = 1;
+    while (i <= smaller) {
+        if (nb1 % i === 0 && nb2 % i === 0) {
+            gcd = i;
+        }
+        i++;
+    }
+    return gcd;
+}
+let number1 = 242;
+let number2 = 110;
+let resultGCD2 = GCD2(number1, number2);
+console.log(resultGCD2);
