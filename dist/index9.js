@@ -170,3 +170,23 @@ const str1 = "Pablo Picasso";
 const str2 = "Pascal Obispo";
 let anagrameOrNot = isAnagram(str1, str2);
 console.log(anagrameOrNot);
+// *******************************
+// 🔠 5. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+// *******************************
+function capitalizeFirstLetter(sentence) {
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie doit être une chaîne de caractères`);
+    }
+    let words = sentence.toLowerCase().split(" ");
+    console.info(words);
+    for (let i = 0; i < words.length; i++)
+        if (words[i].length > 0) {
+            words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
+        }
+    console.info(words);
+    return words.join(" ");
+}
+let sentence = "bonjour ludovic";
+let capitalize = capitalizeFirstLetter(sentence);
+console.log(capitalize);
