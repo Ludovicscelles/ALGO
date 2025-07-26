@@ -152,3 +152,21 @@ let num1 = 48;
 let num2 = 18;
 let resultCGD3 = GCD3(num1, num2);
 console.log(resultCGD3);
+// *******************************
+// 🔤 4. Anagramme
+// Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+// 📌 Exemple : "listen" et "silent" → ✅
+// *******************************
+function isAnagram(str1, str2) {
+    if (typeof str1 !== "string" || typeof str2 !== "string") {
+        throw new Error(`La saisie doit comporter deux chaînes de caractères`);
+    }
+    const normalize = (str) => str.toLowerCase().replace(/\s+/g, "").split("").sort().join("");
+    if (normalize(str1).length !== normalize(str2).length)
+        return false;
+    return normalize(str1) === normalize(str2);
+}
+const str1 = "Pablo Picasso";
+const str2 = "Pascal Obispo";
+let anagrameOrNot = isAnagram(str1, str2);
+console.log(anagrameOrNot);

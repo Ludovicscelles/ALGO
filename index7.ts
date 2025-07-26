@@ -561,7 +561,6 @@ console.log(isAnagramWithComments("chien", "niche"));
 
 // *******************************
 
-// console.log(mergeArrays([1, 2, 3, 4, 4], [4, 5, 6, 7, 8, 8, 9]));
 
 // 🔠 5. Mettre en majuscules la première lettre de chaque mot
 // 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
