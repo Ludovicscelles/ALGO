@@ -190,3 +190,20 @@ function capitalizeFirstLetter(sentence) {
 let sentence = "bonjour ludovic";
 let capitalize = capitalizeFirstLetter(sentence);
 console.log(capitalize);
+// *******************************
+// 🔠 5bis. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+// *******************************
+function capitalizeEachWord(sentence) {
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie doit être une chaîne de caractère`);
+    }
+    return sentence
+        .toLocaleLowerCase()
+        .split(" ")
+        .map((word) => word.charAt(0).toLocaleUpperCase() + word.substring(1))
+        .join(" ");
+}
+let sentence2 = "hello everybody !";
+let capitalize2 = capitalizeEachWord(sentence2);
+console.log(capitalize2);

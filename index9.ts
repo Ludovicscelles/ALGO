@@ -211,8 +211,13 @@ console.log(resultCGD3);
 // *******************************
 
 function isAnagram(str1: string, str2: string): boolean {
+
+  if (arguments.length !== 2) {
+    throw new Error(`La saisie doit comporter exactement deux arguments`);
+  }
+
   if (typeof str1 !== "string" || typeof str2 !== "string") {
-    throw new Error(`La saisie doit comporter deux chaînes de caractères`);
+    throw new Error(`Chaque saisie doit être une chaîne de caractère`);
   }
 
   const normalize = (str: string) =>
@@ -249,12 +254,34 @@ function capitalizeFirstLetter(sentence: string): string {
       words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
     }
 
-  console.info(words)
+  console.info(words);
 
   return words.join(" ");
-
 }
 
 let sentence: string = "bonjour ludovic";
 let capitalize: string = capitalizeFirstLetter(sentence);
 console.log(capitalize);
+
+// *******************************
+
+// 🔠 5bis. Mettre en majuscules la première lettre de chaque mot
+// 📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+
+// *******************************
+
+function capitalizeEachWord(sentence: string): string {
+  if (typeof sentence !== "string") {
+    throw new Error(`La saisie doit être une chaîne de caractère`);
+  }
+
+  return sentence
+    .toLocaleLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toLocaleUpperCase() + word.substring(1))
+    .join(" ");
+}
+
+let sentence2: string = "hello everybody !";
+let capitalize2: string = capitalizeEachWord(sentence2);
+console.log(capitalize2);
