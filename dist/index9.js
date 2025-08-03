@@ -1,5 +1,6 @@
 "use strict";
 // *******************************
+Object.defineProperty(exports, "__esModule", { value: true });
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
 // 📌 Exemple : 2489 → 2 + 4 + 8 = 14
@@ -158,8 +159,11 @@ console.log(resultCGD3);
 // 📌 Exemple : "listen" et "silent" → ✅
 // *******************************
 function isAnagram(str1, str2) {
+    if (arguments.length !== 2) {
+        throw new Error(`La saisie doit comporter exactement deux arguments`);
+    }
     if (typeof str1 !== "string" || typeof str2 !== "string") {
-        throw new Error(`La saisie doit comporter deux chaînes de caractères`);
+        throw new Error(`Chaque saisie doit être une chaîne de caractère`);
     }
     const normalize = (str) => str.toLowerCase().replace(/\s+/g, "").split("").sort().join("");
     if (normalize(str1).length !== normalize(str2).length)
@@ -207,3 +211,24 @@ function capitalizeEachWord(sentence) {
 let sentence2 = "hello everybody !";
 let capitalize2 = capitalizeEachWord(sentence2);
 console.log(capitalize2);
+// *********************************************
+// 🧠 6. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+// ************************************************
+function ImprovedMultiplicationTable(n) {
+    if (!Number.isInteger(n) || n < 1) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    const arrayTable = [];
+    for (let i = 1; i <= n; i++) {
+        const row = [];
+        for (let j = 1; j <= 10; j++) {
+            row.push(`${i} x ${j} = ${i * j}`);
+        }
+        arrayTable.push(row);
+        console.log(row.join(" | "));
+    }
+    return arrayTable;
+}
+let number = 5;
+ImprovedMultiplicationTable(number);
