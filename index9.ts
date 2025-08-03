@@ -1,5 +1,6 @@
 // *******************************
 
+import { string } from "joi";
 import { join } from "path";
 
 // 🔢 1. Somme des chiffres pairs
@@ -294,7 +295,7 @@ console.log(capitalize2);
 
 // ************************************************
 
-function ImprovedMultiplicationTable(n: number): string[][] {
+function improvedMultiplicationTable(n: number): string[][] {
   if (!Number.isInteger(n) || n < 1) {
     throw new Error(`La saisie doit être un nombre entier`);
   }
@@ -313,4 +314,38 @@ function ImprovedMultiplicationTable(n: number): string[][] {
 }
 
 let number: number = 5;
-ImprovedMultiplicationTable(number);
+improvedMultiplicationTable(number);
+
+// *********************************************
+
+// 🧠 6bis. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+
+// ************************************************
+
+function improvedMultiplicationTable2(number: number): string[][] {
+  if (!Number.isInteger(number) || number < 1) {
+    throw new Error(`La saisie doit être un nombre entier et positif`);
+  }
+
+  const arrayTable: string[][] = [];
+
+  let i = 1;
+
+  while (i <= number) {
+    const row: string[] = [];
+    let j = 1;
+    while (j <= 10) {
+      const row: string[] = [];
+      row.push(`${i} x ${j} = ${i * j}`);
+      j++;
+    }
+    arrayTable.push(row);
+    console.log(row.join(" | "));
+    i++;
+  }
+  return arrayTable;
+}
+
+let num: number = 9;
+improvedMultiplicationTable2(num);

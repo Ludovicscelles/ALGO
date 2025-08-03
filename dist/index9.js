@@ -215,7 +215,7 @@ console.log(capitalize2);
 // 🧠 6. Table de multiplication améliorée
 // Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
 // ************************************************
-function ImprovedMultiplicationTable(n) {
+function improvedMultiplicationTable(n) {
     if (!Number.isInteger(n) || n < 1) {
         throw new Error(`La saisie doit être un nombre entier`);
     }
@@ -231,4 +231,29 @@ function ImprovedMultiplicationTable(n) {
     return arrayTable;
 }
 let number = 5;
-ImprovedMultiplicationTable(number);
+improvedMultiplicationTable(number);
+// *********************************************
+// 🧠 6bis. Table de multiplication améliorée
+// Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+// ************************************************
+function improvedMultiplicationTable2(number) {
+    if (!Number.isInteger(number) || number < 1) {
+        throw new Error(`La saisie doit être un nombre entier et positif`);
+    }
+    const arrayTable = [];
+    let i = 1;
+    while (i <= number) {
+        const row = [];
+        let j = 1;
+        while (j <= 10) {
+            row.push(`${i} x ${j} = ${i * j}`);
+            j++;
+        }
+        arrayTable.push(row);
+        console.log(row.join(" | "));
+        i++;
+    }
+    return arrayTable;
+}
+let num = 9;
+improvedMultiplicationTable2(num);
