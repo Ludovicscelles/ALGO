@@ -349,3 +349,30 @@ function improvedMultiplicationTable2(number: number): string[][] {
 
 let num: number = 9;
 improvedMultiplicationTable2(num);
+
+// *********************************************
+
+// 📊 7. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+
+// *********************************************
+
+function average(tabNumber: number[]): number {
+  if (!Array.isArray(tabNumber) || tabNumber.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau contenant à minima deux nombres`
+    );
+  }
+
+  let sum: number = 0;
+
+  for (let i = 0; i < tabNumber.length; i++) {
+    sum = tabNumber[i] + sum;
+  }
+  return Math.round((sum / tabNumber.length) * 100) / 100;
+}
+
+let tabNumber: number[] = [58, 24.25645654, 180.954, 125, 198, 25];
+let numbersAverage: number = average(tabNumber);
+console.log(numbersAverage);
