@@ -276,3 +276,23 @@ function average(tabNumber) {
 let tabNumber = [58, 24.25645654, 180.954, 125, 198, 25];
 let numbersAverage = average(tabNumber);
 console.log(numbersAverage);
+// *********************************************
+// 📊 7bis. Calcul de la moyenne
+// Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+// 📌 Bonus : Arrondir à 2 décimales.
+// *********************************************
+function average2(tabNumber) {
+    if (!Array.isArray(tabNumber) || tabNumber.length < 2) {
+        throw new Error(`La saisie doit être un tableau comportant à minima deux nombres`);
+    }
+    let sum = 0;
+    let i = 0;
+    while (i < tabNumber.length) {
+        sum += tabNumber[i];
+        i++;
+    }
+    return Math.round((sum / tabNumber.length) * 100) / 100;
+}
+let tabNumber2 = [58, 24.25645654, 180.954, 125, 198, 25];
+let numbersAverage2 = average2(tabNumber2);
+console.log(numbersAverage2);
