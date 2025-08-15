@@ -1,7 +1,5 @@
 // *******************************
 
-import { string } from "joi";
-import { join } from "path";
 
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
@@ -403,7 +401,37 @@ function average2(tabNumber: number[]): number {
   return Math.round((sum / tabNumber.length) * 100) / 100;
 }
 
-
 let tabNumber2: number[] = [58, 24.25645654, 180.954, 125, 198, 25];
 let numbersAverage2: number = average2(tabNumber2);
 console.log(numbersAverage2);
+
+// ********************************************
+
+// 📦 8. Compresser une chaîne (Run-length encoding)
+// Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+// 📌 Exemple : "aaabbc" → "a3b2c1"
+
+// ********************************************
+
+function compressAString(str: string): string {
+  if (typeof str !== "string") {
+    throw new Error(`La saisie doît être une chaîne de caractères`);
+  }
+
+  let compressed: string = "";
+  let count: number = 1;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      count++;
+    } else {
+      compressed += str[i] + count;
+      count = 1;
+    }
+  }
+  return compressed;
+}
+
+let string: string = "aaabbc";
+let compressed: string = compressAString(string);
+console.log(compressed);

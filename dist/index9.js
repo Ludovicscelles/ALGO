@@ -1,6 +1,5 @@
 "use strict";
 // *******************************
-Object.defineProperty(exports, "__esModule", { value: true });
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
 // 📌 Exemple : 2489 → 2 + 4 + 8 = 14
@@ -296,3 +295,28 @@ function average2(tabNumber) {
 let tabNumber2 = [58, 24.25645654, 180.954, 125, 198, 25];
 let numbersAverage2 = average2(tabNumber2);
 console.log(numbersAverage2);
+// ********************************************
+// 📦 8. Compresser une chaîne (Run-length encoding)
+// Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+// 📌 Exemple : "aaabbc" → "a3b2c1"
+// ********************************************
+function compressAString(str) {
+    if (typeof str !== "string") {
+        throw new Error(`La saisie doît être une chaîne de caractères`);
+    }
+    let compressed = "";
+    let count = 1;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === str[i + 1]) {
+            count++;
+        }
+        else {
+            compressed += str[i] + count;
+            // count = 1;
+        }
+    }
+    return compressed;
+}
+let string = "aaabbc";
+let compressed = compressAString(string);
+console.log(compressed);
