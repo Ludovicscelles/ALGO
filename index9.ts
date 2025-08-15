@@ -468,3 +468,41 @@ function compressAString2(string: string): string {
 let string2: string = "aaabbcdd";
 let compressString2: string = compressAString2(string2);
 console.log(compressString2);
+
+// ******************************************************
+
+// 🎯 9. Trouver le deuxième plus grand nombre
+// Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+// 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+
+// ******************************************************
+
+function findSecondBiggestNumber(arrNum: number[]): number {
+  if (!Array.isArray(arrNum) || arrNum.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau comportant au minimum deux nombres`
+    );
+  }
+
+  let biggestNumber: number = arrNum[0];
+  let secondBiggestNumber: number = -Infinity;
+
+  for (let i = 1; i < arrNum.length; i++) {
+    if (arrNum[i] > biggestNumber) {
+      secondBiggestNumber = biggestNumber;
+      biggestNumber = arrNum[i];
+    } else if (arrNum[i] < biggestNumber && arrNum[i] > secondBiggestNumber) {
+      secondBiggestNumber = arrNum[i];
+    }
+  }
+
+  if (secondBiggestNumber === -Infinity) {
+    throw new Error(`Il n'y a pas de deuxième plus grand nombre distinct`);
+  }
+
+  return secondBiggestNumber;
+}
+
+let arrNum: number[] = [12, 14, 13, 11];
+let secondBiggestNumber: number = findSecondBiggestNumber(arrNum);
+console.log(secondBiggestNumber);
