@@ -1,6 +1,5 @@
 // *******************************
 
-
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
 // 📌 Exemple : 2489 → 2 + 4 + 8 = 14
@@ -435,3 +434,37 @@ function compressAString(str: string): string {
 let string: string = "aaabbc";
 let compressed: string = compressAString(string);
 console.log(compressed);
+
+// ********************************************
+
+// 📦 8bis. Compresser une chaîne (Run-length encoding)
+// Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+// 📌 Exemple : "aaabbc" → "a3b2c1"
+
+// ********************************************
+
+function compressAString2(string: string): string {
+  if (typeof string !== "string") {
+    throw new Error(`La saisie doit être une chaîne de caractères`);
+  }
+
+  let compressed: string = "";
+  let count: number = 1;
+
+  let i = 0;
+
+  while (i < string.length) {
+    if (string[i] === string[i + 1]) {
+      count++;
+    } else {
+      compressed += string[i] + count;
+      count = 1;
+    }
+    i++;
+  }
+  return compressed;
+}
+
+let string2: string = "aaabbcdd";
+let compressString2: string = compressAString2(string2);
+console.log(compressString2);

@@ -312,7 +312,7 @@ function compressAString(str) {
         }
         else {
             compressed += str[i] + count;
-            // count = 1;
+            count = 1;
         }
     }
     return compressed;
@@ -320,3 +320,30 @@ function compressAString(str) {
 let string = "aaabbc";
 let compressed = compressAString(string);
 console.log(compressed);
+// ********************************************
+// 📦 8bis. Compresser une chaîne (Run-length encoding)
+// Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+// 📌 Exemple : "aaabbc" → "a3b2c1"
+// ********************************************
+function compressAString2(string) {
+    if (typeof string !== "string") {
+        throw new Error(`La saisie doit être une chaîne de caractères`);
+    }
+    let compressed = "";
+    let count = 1;
+    let i = 0;
+    while (i < string.length) {
+        if (string[i] === string[i + 1]) {
+            count++;
+        }
+        else {
+            compressed += string[i] + count;
+            count = 1;
+        }
+        i++;
+    }
+    return compressed;
+}
+let string2 = "aaabbcdd";
+let compressString2 = compressAString2(string2);
+console.log(compressString2);
