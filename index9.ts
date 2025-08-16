@@ -506,3 +506,42 @@ function findSecondBiggestNumber(arrNum: number[]): number {
 let arrNum: number[] = [12, 14, 13, 11];
 let secondBiggestNumber: number = findSecondBiggestNumber(arrNum);
 console.log(secondBiggestNumber);
+
+// ******************************************************
+
+// 🎯 9bis. Trouver le deuxième plus grand nombre
+// Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+// 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+
+// ******************************************************
+
+function findSecondBiggestNumber2(arrNum: number[]): number {
+  if (!Array.isArray(arrNum) || arrNum.length < 2) {
+    throw new Error(
+      `La saisie doit être un tableau comportant à minima deux nombres`
+    );
+  }
+
+  let biggestNumber: number = arrNum[0];
+  let secondBiggestNumber: number = -Infinity;
+
+  let i = 1;
+
+  while (i < arrNum.length) {
+    if (arrNum[i] > biggestNumber) {
+      secondBiggestNumber = biggestNumber;
+      biggestNumber = arrNum[i];
+    } else if (arrNum[i] < biggestNumber && arrNum[i] > secondBiggestNumber) {
+      secondBiggestNumber = arrNum[i];
+    }
+    i++;
+  }
+  if (secondBiggestNumber === -Infinity) {
+    throw new Error(`Il n'y a pas de deuxième plus grand nombre distinct`);
+  }
+  return secondBiggestNumber;
+}
+
+let arrNum2: number[] = [222, 252, 258, 275];
+let secondBiggestNumber2: number = findSecondBiggestNumber2(arrNum2);
+console.log(secondBiggestNumber2);
