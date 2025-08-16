@@ -545,3 +545,29 @@ function findSecondBiggestNumber2(arrNum: number[]): number {
 let arrNum2: number[] = [222, 252, 258, 275];
 let secondBiggestNumber2: number = findSecondBiggestNumber2(arrNum2);
 console.log(secondBiggestNumber2);
+
+// ******************************************************
+
+// 🧩 10. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+
+// ******************************************************
+
+function multiplesOf3And5(number: number): number[] {
+  if (!Number.isInteger(number) || number < 1 ) {
+    throw new Error(`La saisie doit être un nombre entier positif`);
+  }
+
+  let arrayMutiblesOf3And5: number[] = [];
+
+  for (let i = 1; i <= number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      arrayMutiblesOf3And5.push(i);
+    }
+  }
+  return arrayMutiblesOf3And5;
+}
+
+let num3: number = 15;
+let arrayMutiblesOf3And5: number[] = multiplesOf3And5(num3);
+console.log(arrayMutiblesOf3And5);
