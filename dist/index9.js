@@ -410,8 +410,8 @@ console.log(secondBiggestNumber2);
 // 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
 // ******************************************************
 function multiplesOf3And5(number) {
-    if (!Number.isInteger(number)) {
-        throw new Error(`La saisie doit être un nombre entier`);
+    if (!Number.isInteger(number) || number < 1) {
+        throw new Error(`La saisie doit être un nombre entier positif`);
     }
     let arrayMutiblesOf3And5 = [];
     for (let i = 1; i <= number; i++) {
@@ -424,3 +424,24 @@ function multiplesOf3And5(number) {
 let num3 = 15;
 let arrayMutiblesOf3And5 = multiplesOf3And5(num3);
 console.log(arrayMutiblesOf3And5);
+// ******************************************************
+// 🧩 10bis. Trouver tous les multiples de 3 ou 5 jusqu'à n
+// 📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+// ******************************************************
+function multiplesOf3And5Bis(n) {
+    if (!Number.isInteger(n) || n < 1) {
+        throw new Error(`La saisie doit être un nombre entier positif`);
+    }
+    let arrayMutiblesOf3And5 = [];
+    let i = 1;
+    while (i <= n) {
+        if (i % 5 === 0 || i % 3 === 0) {
+            arrayMutiblesOf3And5.push(i);
+        }
+        i++;
+    }
+    return arrayMutiblesOf3And5;
+}
+let num4 = 25;
+let arrayMutiblesOf3And5Bis = multiplesOf3And5Bis(num4);
+console.log(arrayMutiblesOf3And5Bis);
