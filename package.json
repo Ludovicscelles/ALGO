@@ -13,6 +13,7 @@
     "start7": "tsc && node dist/index7.js",
     "start8": "tsc && node dist/index8.js",
     "start9": "tsc && node dist/index9.js",
+    "start10": "tsc && node dist/index10.js",
     "watch": "tsc --watch"
   },
   "keywords": [],
