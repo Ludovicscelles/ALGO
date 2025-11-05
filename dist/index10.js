@@ -45,3 +45,25 @@ function sumOfDiggitsEvenNumbers2(num01) {
 let num01 = 1024;
 let sumEvenNum1 = sumOfDiggitsEvenNumbers2(num01);
 console.log(sumEvenNum1);
+{
+    /*
+  🔁 2. Inverser un nombre
+  Écris une fonction qui prend un entier et retourne son inverse.
+  📌 Exemple : 1234 → 4321
+  (sans convertir en string si tu veux un vrai défi)
+  */
+}
+function reverseANumber(nToReverse) {
+    if (!Number.isInteger(nToReverse)) {
+        throw new Error(`La saisie doit être un nombre entier`);
+    }
+    let absNToReverse = Math.abs(nToReverse);
+    let reversedNumber = 0;
+    while (absNToReverse > 0) {
+        reversedNumber = reversedNumber * 10 + (absNToReverse % 10);
+        absNToReverse = Math.floor(absNToReverse / 10);
+    }
+    return nToReverse < 0 ? -reversedNumber : reversedNumber;
+}
+console.log(reverseANumber(123));
+console.log(reverseANumber(-923));
