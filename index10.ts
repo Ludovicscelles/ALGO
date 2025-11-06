@@ -138,3 +138,35 @@ let number01 = 240;
 let number02 = 68;
 let BCD: number = grandCommunDivisor(number01, number02);
 console.log(BCD);
+
+{
+  /*
+  🧮 3bis. PGCD (Plus Grand Commun Diviseur)
+Écris une fonction qui retourne le PGCD de deux nombres entiers.
+📌 Exemple : PGCD(48, 18) → 6
+*/
+}
+
+function grandCommunDivisorBis(number03: number, number04: number): number {
+  if (!Number.isInteger(number03) || !Number.isInteger(number04)) {
+    throw new Error(`La saisie doit comporter deux nombres entiers`);
+  }
+
+  let smaller: number = Math.min(number03, number04);
+  let gcd: number = 1;
+
+  let i = 1;
+
+  while (i <= smaller) {
+    if (number03 % i === 0 && number04 % i === 0) {
+      gcd = i;
+    }
+    i++;
+  }
+  return gcd;
+}
+
+let number04 = 266;
+let number03 = 532;
+let BCD2 = grandCommunDivisorBis(number03, number04);
+console.log(BCD2)
