@@ -169,4 +169,31 @@ function grandCommunDivisorBis(number03: number, number04: number): number {
 let number04 = 266;
 let number03 = 532;
 let BCD2 = grandCommunDivisorBis(number03, number04);
-console.log(BCD2)
+console.log(BCD2);
+
+{
+  /*
+  🧮 3ter. PGCD (Plus Grand Commun Diviseur)
+Écris une fonction qui retourne le PGCD de deux nombres entiers.
+📌 Exemple : PGCD(48, 18) → 6
+*/
+}
+
+function myFunctionGCD(num001: number, num002: number): number {
+  if (!Number.isInteger(num001) || !Number.isInteger(num002)) {
+    throw new Error(`La saisie doit comporter deux nombres entiers`);
+  }
+
+  if (num002 === 0) {
+    return num001;
+  }
+
+  return myFunctionGCD(num002, num001 % num002);
+}
+
+let num001 = 9;
+let num002 = 6;
+let resultGCD: number = myFunctionGCD(num001, num002);
+console.log(
+  `Le plus grand diviseur commun de ${num001} et de ${num002} est ${resultGCD}`
+);
