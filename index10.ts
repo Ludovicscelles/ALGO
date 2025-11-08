@@ -197,3 +197,32 @@ let resultGCD: number = myFunctionGCD(num001, num002);
 console.log(
   `Le plus grand diviseur commun de ${num001} et de ${num002} est ${resultGCD}`
 );
+
+{
+  /*
+  🧮 3quater. PGCD (Plus Grand Commun Diviseur)
+Écris une fonction qui retourne le PGCD de deux nombres entiers.
+📌 Exemple : PGCD(48, 18) → 6
+*/
+}
+
+function myEuclidFunctionGCD(num003: number, num004: number): number {
+  if (!Number.isInteger(num003) || !Number.isInteger(num004)) {
+    throw new Error(`La saisie doit comporter deux nombres entiers`);
+  }
+
+  while (num004 !== 0) {
+    const temp: number = num003 % num004;
+    num003 = num004;
+    num004 = temp;
+  }
+
+  return num003;
+}
+
+let num003 = 248;
+let num004 = 372;
+let resultEuclidCGD: number = myEuclidFunctionGCD(num003, num004);
+console.log(
+  `Le plus grand diviseur commun de ${num003} et ${num004} est ${resultEuclidCGD}`
+);
