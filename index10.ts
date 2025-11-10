@@ -1,5 +1,7 @@
 // *******************************
 
+import { nextTick } from "process";
+
 // 🔢 1. Somme des chiffres pairs
 // Écris une fonction qui prend un nombre entier et retourne la somme de ses chiffres pairs.
 // 📌 Exemple : 2489 → 2 + 4 + 8 = 14
@@ -119,8 +121,13 @@ console.log(reverseANumberBis(-923));
 }
 
 function grandCommunDivisor(number01: number, number02: number): number {
+  if (arguments.length !== 2) {
+    throw new Error(
+      `La saisie d'entrée doit comporter exactement deux arguments`
+    );
+  }
   if (!Number.isInteger(number01) || !Number.isInteger(number02)) {
-    throw new Error(`La saisie doit comporter deux nombres entiers`);
+    throw new Error(`Chaque saisie doit être un nombre entier`);
   }
 
   let smaller: number = Math.min(number01, number02);
@@ -148,8 +155,14 @@ console.log(BCD);
 }
 
 function grandCommunDivisorBis(number03: number, number04: number): number {
+  if (arguments.length !== 2) {
+    throw new Error(
+      `La saisie d'entrée doit comporter exactement deux arguments`
+    );
+  }
+
   if (!Number.isInteger(number03) || !Number.isInteger(number04)) {
-    throw new Error(`La saisie doit comporter deux nombres entiers`);
+    throw new Error(`Chaque saisie doit être un nombre entier`);
   }
 
   let smaller: number = Math.min(number03, number04);
@@ -180,8 +193,14 @@ console.log(BCD2);
 }
 
 function myFunctionGCD(num001: number, num002: number): number {
+  if (arguments.length !== 2) {
+    throw new Error(
+      `La saisie d'entrée doit comporter exactement deux arguments`
+    );
+  }
+
   if (!Number.isInteger(num001) || !Number.isInteger(num002)) {
-    throw new Error(`La saisie doit comporter deux nombres entiers`);
+    throw new Error(`Chaque saisie doit être un nombre entier`);
   }
 
   if (num002 === 0) {
@@ -207,8 +226,13 @@ console.log(
 }
 
 function myEuclidFunctionGCD(num003: number, num004: number): number {
+  if (arguments.length !== 2) {
+    throw new Error(
+      `La saisie d'entrée doit comporter exactement deux arguments`
+    );
+  }
   if (!Number.isInteger(num003) || !Number.isInteger(num004)) {
-    throw new Error(`La saisie doit comporter deux nombres entiers`);
+    throw new Error(`Chaque saisie doit être un nombre entier`);
   }
 
   while (num004 !== 0) {
@@ -226,3 +250,49 @@ let resultEuclidCGD: number = myEuclidFunctionGCD(num003, num004);
 console.log(
   `Le plus grand diviseur commun de ${num003} et ${num004} est ${resultEuclidCGD}`
 );
+
+{
+  /*
+🔤 4. Anagramme
+Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+📌 Exemple : "listen" et "silent" → ✅
+*/
+}
+
+function areAnagram(str1: string, str2: string): boolean {
+  if (arguments.length !== 2) {
+    throw new Error(
+      `La saisie d'entrée doit comporter exactement deux arguments `
+    );
+  }
+  if (typeof str1 !== "string" || typeof str2 !== "string") {
+    throw new Error(`Chaque saisie doit être une chaîne de caractères`);
+  }
+
+  str1 = str1.replace(/\s+/g, "").toLowerCase();
+  str2 = str2.replace(/\s+/g, "").toLowerCase();
+
+  let lengthStr1: number = str1.length;
+  let lengthStr2: number = str2.length;
+
+  if (lengthStr1 != lengthStr2) return false;
+
+  let sortedStr1: string = str1.split("").sort().join("");
+  let sortedStr2: string = str2.split("").sort().join("");
+
+  for (let i = 0; i < lengthStr1; i++) {
+    if (sortedStr1[i] !== sortedStr2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+let str1 = "Pascal Obispo";
+let str2 = "Pablo Picasso";
+
+if (areAnagram(str1, str2)) {
+  console.log("Les deux chaînes de caractères sont des anagrammes");
+} else {
+  console.log("Les deux chaînes de caractères ne sont pas des anagrammes");
+}
