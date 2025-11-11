@@ -349,3 +349,28 @@ if (areAnagram2(str3, str4)) {
 } else {
   console.log("Les deux chaînes de caractères ne sont pas des anagrammes");
 }
+
+{
+  /*
+🔠 5. Mettre en majuscules la première lettre de chaque mot
+📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+*/
+}
+
+function capitalizeEachWord(string: string): string {
+  if (typeof string !== "string") {
+    throw new Error(`La saisie d'entrée doit être une chaîne de caractères`);
+  }
+
+  let splitString = string.toLowerCase().split(" ");
+
+  for (let i = 0; i < splitString.length; i++) {
+    splitString[i] =
+      splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);
+  }
+  return splitString.join(" ");
+}
+
+let string = "we are the world";
+let titleCase = capitalizeEachWord(string);
+console.log(titleCase);
