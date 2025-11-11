@@ -290,3 +290,25 @@ function capitalizeEachWord(string) {
 let string = "we are the world";
 let titleCase = capitalizeEachWord(string);
 console.log(titleCase);
+{
+    /*
+  🔠 5bis Mettre en majuscules la première lettre de chaque mot
+  📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+  */
+}
+function capitalizeEachWord2(string2) {
+    if (typeof string2 !== "string") {
+        throw new Error(`La saisie d'entrée doit être un chaîne de caractères`);
+    }
+    let splitString2 = string2.toLowerCase().split(" ");
+    let i = 0;
+    while (i < splitString2.length) {
+        splitString2[i] =
+            splitString2[i].charAt(0).toUpperCase() + splitString2[i].substring(1);
+        i++;
+    }
+    return splitString2.join(" ");
+}
+let string2 = "we are the world";
+let titleCase2 = capitalizeEachWord2(string2);
+console.log(titleCase2);
