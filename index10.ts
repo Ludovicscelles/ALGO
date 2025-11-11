@@ -1,5 +1,6 @@
 // *******************************
 
+import { boolean } from "joi";
 import { nextTick } from "process";
 
 // 🔢 1. Somme des chiffres pairs
@@ -292,6 +293,58 @@ let str1 = "Pascal Obispo";
 let str2 = "Pablo Picasso";
 
 if (areAnagram(str1, str2)) {
+  console.log("Les deux chaînes de caractères sont des anagrammes");
+} else {
+  console.log("Les deux chaînes de caractères ne sont pas des anagrammes");
+}
+
+{
+  /*
+🔤 4bis. Anagramme
+Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+📌 Exemple : "listen" et "silent" → ✅
+*/
+}
+
+function areAnagram2(str3: string, str4: string): boolean {
+  if (arguments.length !== 2) {
+    throw new Error(
+      `La saisie d'entrée doit comporter exactement deux arguments`
+    );
+  }
+
+  if (typeof str3 !== "string" || typeof str4 !== "string") {
+    throw new Error(`Chaque saisie doit être une chaîne de caractères`);
+  }
+
+  str3 = str3.replace(/\s+/g, "").toLowerCase();
+  str4 = str4.replace(/\s+/g, "").toLowerCase();
+
+  let lengthStr3: number = str3.length;
+  let lengthStr4: number = str4.length;
+
+  if (lengthStr3 !== lengthStr4) {
+    return false;
+  }
+
+  let sortedStr3: string = str3.split("").sort().join("");
+  let sortedStr4: string = str4.split("").sort().join("");
+
+  let i = 0;
+
+  while (i < lengthStr3) {
+    if (sortedStr3[i] !== sortedStr4[i]) {
+      return false;
+    }
+    i++;
+  }
+  return true;
+}
+
+let str3 = "Pascal Obispo";
+let str4 = "Pablo Picasso";
+
+if (areAnagram2(str3, str4)) {
   console.log("Les deux chaînes de caractères sont des anagrammes");
 } else {
   console.log("Les deux chaînes de caractères ne sont pas des anagrammes");

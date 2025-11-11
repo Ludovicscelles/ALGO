@@ -198,7 +198,6 @@ console.log(`Le plus grand diviseur commun de ${num003} et ${num004} est ${resul
   🔤 4. Anagramme
   Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
   📌 Exemple : "listen" et "silent" → ✅
-  
   */
 }
 function areAnagram(str1, str2) {
@@ -226,6 +225,43 @@ function areAnagram(str1, str2) {
 let str1 = "Pascal Obispo";
 let str2 = "Pablo Picasso";
 if (areAnagram(str1, str2)) {
+    console.log("Les deux chaînes de caractères sont des anagrammes");
+}
+else {
+    console.log("Les deux chaînes de caractères ne sont pas des anagrammes");
+}
+{
+    /*
+  🔤 4bis. Anagramme
+  Écris une fonction qui vérifie si deux chaînes sont des anagrammes.
+  📌 Exemple : "listen" et "silent" → ✅
+  */
+}
+function areAnagram2(str3, str4) {
+    if (arguments.length !== 2) {
+        throw new Error(`La saisie d'entrée doit être un chaîne de caractères`);
+    }
+    str3 = str3.replace(/\s+/g, "").toLowerCase();
+    str4 = str4.replace(/\s+/g, "").toLowerCase();
+    let lengthStr3 = str3.length;
+    let lengthStr4 = str4.length;
+    if (lengthStr3 !== lengthStr4) {
+        return false;
+    }
+    let sortedStr3 = str3.split("").sort().join("");
+    let sortedStr4 = str4.split("").sort().join("");
+    let i = 0;
+    while (i < lengthStr3) {
+        if (sortedStr3[i] !== sortedStr4[i]) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+let str3 = "Pascal Obispo";
+let str4 = "Pablo Picasso";
+if (areAnagram2(str3, str4)) {
     console.log("Les deux chaînes de caractères sont des anagrammes");
 }
 else {
