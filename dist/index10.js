@@ -464,3 +464,31 @@ function stringCompression(string) {
 let characters = "aaabbc";
 let compressAString = stringCompression(characters);
 console.log(compressAString);
+{
+    /*
+  📦 8bis. Compresser une chaîne (Run-length encoding)
+  Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+  📌 Exemple : "aaabbc" → "a3b2c1"
+  
+  */
+}
+function stringCompression2(characters) {
+    if (typeof characters !== "string") {
+        throw new Error(`La saisie d'entrée doit être un chaîne de caractères`);
+    }
+    let output = "";
+    let count = 0;
+    let i = 0;
+    while (i < characters.length) {
+        count++;
+        if (characters[i] !== characters[i + 1]) {
+            output += characters[i] + count;
+            count = 0;
+        }
+        i++;
+    }
+    return output;
+}
+let characters01 = "bbbbccdd";
+let compressAString2 = stringCompression2(characters01);
+console.log(compressAString2);
