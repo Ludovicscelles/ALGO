@@ -396,6 +396,10 @@ function averageArray(arrayNumbers) {
     if (arrayNumbers.length < 2) {
         throw new Error(`La saisie doit comporter à minima deux éléments`);
     }
+    const arrayElementsType = arrayNumbers.every((element) => typeof element === "number" ? true : false);
+    if (!arrayElementsType) {
+        throw new Error(`Chaque élément du tableau doit être un nombre`);
+    }
     let sum = 0;
     for (let i = 0; i < arrayNumbers.length; i++) {
         sum = sum + arrayNumbers[i];
@@ -406,3 +410,31 @@ function averageArray(arrayNumbers) {
 let arrayNumbers = [58.228, 53.12321313, 55.22569, 75.12582];
 let averageNumbers = averageArray(arrayNumbers);
 console.log(averageNumbers);
+{
+    /*
+  📊 7bis. Calcul de la moyenne
+  Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+  📌 Bonus : Arrondir à 2 décimales.
+  
+  */
+}
+function averageArray2(arrayNumbers2) {
+    if (!Array.isArray(arrayNumbers2) || arrayNumbers2.length < 2) {
+        throw new Error(`La saisie d'entrée doit être un tableau comportant à minima deux éléments`);
+    }
+    const arrayElementsType = arrayNumbers2.every((element) => typeof element === "number" ? true : false);
+    if (!arrayElementsType) {
+        throw new Error(`Chaque élément du tableau doit être un nombre `);
+    }
+    let sum = 0;
+    let i = 0;
+    while (i < arrayNumbers2.length) {
+        sum += arrayNumbers2[i];
+        i++;
+    }
+    const average = sum / arrayNumbers2.length;
+    return Math.round(average * 100) / 100;
+}
+let arrayNumbers2 = [102.24, 105.12355, 109.45654];
+let averageNumbers2 = averageArray2(arrayNumbers2);
+console.log(averageNumbers2);
