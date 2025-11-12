@@ -568,3 +568,34 @@ function averageArray2(arrayNumbers2: number[]): number {
 let arrayNumbers2 = [102.24, 105.12355, 109.45654];
 let averageNumbers2: number = averageArray2(arrayNumbers2);
 console.log(averageNumbers2);
+
+{
+  /*
+📦 8. Compresser une chaîne (Run-length encoding)
+Écris une fonction qui compresse une chaîne en comptant les caractères consécutifs.
+📌 Exemple : "aaabbc" → "a3b2c1"
+
+*/
+}
+
+function stringCompression(string: string): string {
+  if (typeof string !== "string") {
+    throw new Error(`La saisie d'entrée doit être une chaîne de caractères`);
+  }
+
+  let output: string = "";
+  let count: number = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    count++;
+    if (string[i] !== string[i + 1]) {
+      output += string[i] + count;
+      count = 0;
+    }
+  }
+  return output;
+}
+
+let characters: string = "aaabbc";
+let compressAString: string = stringCompression(characters);
+console.log(compressAString);
