@@ -435,7 +435,6 @@ Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour 
 }
 
 function improvedMultiplicationTable(numInt: number): string[][] {
-  
   if (!Number.isInteger(numInt)) {
     throw new Error(`La saisie doit être un nombre entier`);
   }
@@ -456,3 +455,37 @@ let numInt = 5;
 let twoArrayMultiplicationTable: string[][] =
   improvedMultiplicationTable(numInt);
 console.log(twoArrayMultiplicationTable);
+
+{
+  /*
+  6bis. Table de multiplication améliorée
+Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+  */
+}
+
+function improvedMultiplicationTable2(numInteger: number): string[][] {
+  if (!Number.isInteger(numInteger)) {
+    throw new Error(`La saisie doit être un nombre entier`);
+  }
+
+  const tables: string[][] = [];
+
+  let i = 1;
+  while (i <= numInteger) {
+    const row: string[] = [];
+    let j = 1;
+    while (j <= 10) {
+      row.push(`${i} x ${j} = ${i * j}`);
+      j++;
+    }
+
+    tables.push(row);
+    i++;
+  }
+  return tables;
+}
+
+let numInteger = 7;
+let twoArrayMultiplicationTable2: string[][] =
+  improvedMultiplicationTable2(numInteger);
+console.log(twoArrayMultiplicationTable2);
