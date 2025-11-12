@@ -14,6 +14,7 @@
     "javascript": false,
     "javascriptreact": true,
     "json": false,
-    "jsonc": true
+    "jsonc": true,
+    "properties": true
   }
 }

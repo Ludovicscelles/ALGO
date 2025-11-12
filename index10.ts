@@ -489,3 +489,42 @@ let numInteger = 7;
 let twoArrayMultiplicationTable2: string[][] =
   improvedMultiplicationTable2(numInteger);
 console.log(twoArrayMultiplicationTable2);
+
+{
+  /*
+📊 7. Calcul de la moyenne
+Écris une fonction qui prend un tableau de nombres et retourne la moyenne.
+📌 Bonus : Arrondir à 2 décimales.
+
+*/
+}
+
+function averageArray(arrayNumbers: number[]): number {
+  if (!Array.isArray(arrayNumbers)) {
+    throw new Error(`La saisie doit être un tableau`);
+  }
+
+  if (arrayNumbers.length < 2) {
+    throw new Error(`La saisie doit comporter à minima deux éléments`);
+  }
+
+  const arrayElementsType = arrayNumbers.every((element) =>
+    typeof element === "number" ? true : false
+  );
+
+  if (!arrayElementsType) {
+    throw new Error(`Chaque élément du tableau doit être un nombre`);
+  }
+
+  let sum = 0;
+
+  for (let i = 0; i < arrayNumbers.length; i++) {
+    sum = sum + arrayNumbers[i];
+  }
+  const average = sum / arrayNumbers.length;
+  return Math.round(average * 100) / 100;
+}
+
+let arrayNumbers = [58.228, 53.12321313, 55.22569, 75.12582];
+let averageNumbers: number = averageArray(arrayNumbers);
+console.log(averageNumbers);
