@@ -426,3 +426,33 @@ function capitalizeEachWord3(sentence: string): string {
 let sentence = "we are the world";
 let titleCase3: string = capitalizeEachWord3(sentence);
 console.log(titleCase3);
+
+{
+  /*
+  6. Table de multiplication améliorée
+Crée une fonction qui retourne la table de multiplication (jusqu’à 10) pour tous les entiers de 1 à n sous forme de tableau à 2 dimensions.
+  */
+}
+
+function improvedMultiplicationTable(numInt: number): string[][] {
+  
+  if (!Number.isInteger(numInt)) {
+    throw new Error(`La saisie doit être un nombre entier`);
+  }
+
+  const tables: string[][] = [];
+
+  for (let i = 1; i <= numInt; i++) {
+    const row: string[] = [];
+    for (let j = 1; j <= 10; j++) {
+      row.push(`${i} x ${j} = ${i * j}`);
+    }
+    tables.push(row);
+  }
+  return tables;
+}
+
+let numInt = 5;
+let twoArrayMultiplicationTable: string[][] =
+  improvedMultiplicationTable(numInt);
+console.log(twoArrayMultiplicationTable);
