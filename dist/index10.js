@@ -312,3 +312,22 @@ function capitalizeEachWord2(string2) {
 let string2 = "we are the world";
 let titleCase2 = capitalizeEachWord2(string2);
 console.log(titleCase2);
+{
+    /*
+  🔠 5ter Mettre en majuscules la première lettre de chaque mot
+  📌 Exemple : "bonjour ludovic" → "Bonjour Ludovic"
+  */
+}
+function capitalizeEachWord3(sentence) {
+    if (typeof sentence !== "string") {
+        throw new Error(`La saisie d'entrée doit être une chaîne de caractères`);
+    }
+    return sentence
+        .toLowerCase()
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+        .join(" ");
+}
+let sentence = "we are the world";
+let titleCase3 = capitalizeEachWord3(sentence);
+console.log(titleCase3);
