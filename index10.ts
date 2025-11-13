@@ -734,7 +734,7 @@ console.log(secondTallestNumber2);
 {
   /*
 
-🎯 9bis. Trouver le deuxième plus grand nombre
+🎯 9ter. Trouver le deuxième plus grand nombre
 Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
 📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
 
@@ -777,3 +777,53 @@ function secondBiggestNumber3(nums3: number[]): number {
 let nums3 = [12.53, 52.25, 23.25, 48.78, 22.11, 20.62];
 let secondTallestNumber3: number = secondBiggestNumber3(nums3);
 console.log(secondTallestNumber3);
+
+{
+  /*
+
+🎯 9quater. Trouver le deuxième plus grand nombre
+Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+
+*/
+}
+
+function secondBiggestNumber4(nums4: number[]): number {
+  if (!Array.isArray(nums4) || nums4.length < 2) {
+    throw new Error(
+      `La saisie d'entrée doit être un tableau comportant à minima deux éléments`
+    );
+  }
+
+  const nums4ElementsType = nums4.every((num) =>
+    typeof num === "number" ? true : false
+  );
+
+  if (!nums4ElementsType) {
+    throw new Error(`Chaque élément du tableau doit être un nombre `);
+  }
+
+  let biggestNumber: number = nums4[0];
+  let secondBiggestNumber: number = -Infinity;
+
+  let i = 1;
+
+  while (i < nums4.length) {
+    if (nums4[i] > biggestNumber) {
+      secondBiggestNumber = biggestNumber;
+      biggestNumber = nums4[i];
+    } else if (nums4[i] < biggestNumber && nums4[i] > secondBiggestNumber) {
+      secondBiggestNumber = nums4[i];
+    }
+    i++;
+  }
+
+  if (secondBiggestNumber === -Infinity) {
+    throw new Error(`Il n'y a de deuxième plus grand nombre distinct`);
+  }
+  return secondBiggestNumber;
+}
+
+let nums4 = [4, 8, 15, 16, 23, 42, 11];
+let secondTallestNumber4 = secondBiggestNumber4(nums4);
+console.log(secondTallestNumber4);
