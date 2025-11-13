@@ -512,7 +512,7 @@ function secondBiggestNumber(nums) {
     let sortedNums = nums.sort((a, b) => a - b);
     let max = sortedNums[sortedNums.length - 1];
     let secondNumber = null;
-    for (let i = sortedNums.length - 2; i > 0; i--) {
+    for (let i = sortedNums.length - 2; i >= 0; i--) {
         if (sortedNums[i] < max) {
             secondNumber = sortedNums[i];
             break;
@@ -547,7 +547,7 @@ function secondBiggestNumber2(nums2) {
     let max = sortedNums2[sortedNums2.length - 1];
     let secondNumber = null;
     let i = sortedNums2.length - 2;
-    while (i > 0) {
+    while (i >= 0) {
         if (sortedNums2[i] < max) {
             secondNumber = sortedNums2[i];
             break;
@@ -562,3 +562,39 @@ function secondBiggestNumber2(nums2) {
 let num2 = [12, 26, 28, 69, 80, 92, 59];
 let secondTallestNumber2 = secondBiggestNumber2(num2);
 console.log(secondTallestNumber2);
+{
+    /*
+  
+  🎯 9bis. Trouver le deuxième plus grand nombre
+  Écris une fonction qui retourne le deuxième plus grand nombre dans un tableau.
+  📌 Exemple : [4, 8, 15, 16, 23, 42] → 23
+  
+  */
+}
+function secondBiggestNumber3(nums3) {
+    if (!Array.isArray(nums3) || nums3.length < 2) {
+        throw new Error(`La saisie d'entrée doit être un tableau comportant à minima deux éléments`);
+    }
+    const nums3ElementsType = nums3.every((num) => typeof num === "number" ? true : false);
+    if (!nums3ElementsType) {
+        throw new Error(`Chaque élément du tableau doit être un nombre`);
+    }
+    let biggestNumber = nums3[0];
+    let secondBiggestNumber = -Infinity;
+    for (let i = 1; i < nums3.length; i++) {
+        if (nums3[i] > biggestNumber) {
+            secondBiggestNumber = biggestNumber;
+            biggestNumber = nums3[i];
+        }
+        else if (nums3[i] < biggestNumber && nums3[i] > secondBiggestNumber) {
+            secondBiggestNumber = nums3[i];
+        }
+    }
+    if (secondBiggestNumber === -Infinity) {
+        throw new Error(`Il n'y a pas de deuxième plus grand nombre distinct`);
+    }
+    return secondBiggestNumber;
+}
+let nums3 = [12.53, 52.25, 23.25, 48.78, 22.11, 20.62];
+let secondTallestNumber3 = secondBiggestNumber3(nums3);
+console.log(secondTallestNumber3);
