@@ -657,3 +657,26 @@ function multiplesOf3Or5(nb) {
 let nb = 20;
 let multiplesOf3Or5Array = multiplesOf3Or5(nb);
 console.log(multiplesOf3Or5Array);
+{
+    /*
+  🧩 10bis. Trouver tous les multiples de 3 ou 5 jusqu'à n
+  📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+  */
+}
+function multiplesOf3Or5Bis(nb2) {
+    if (!Number.isInteger(nb2) || nb < 1) {
+        throw new Error(`La saisie doit être un nombre entier positif`);
+    }
+    let arrayMutiblesOf3And5Bis = [];
+    let i = 1;
+    while (i <= nb2) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            arrayMutiblesOf3And5Bis.push(i);
+        }
+        i++;
+    }
+    return arrayMutiblesOf3And5Bis;
+}
+let nb2 = 30;
+let arrayMutiblesOf3And5Bis = multiplesOf3Or5Bis(nb2);
+console.log(arrayMutiblesOf3And5Bis);
