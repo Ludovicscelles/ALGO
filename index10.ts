@@ -827,3 +827,29 @@ function secondBiggestNumber4(nums4: number[]): number {
 let nums4 = [4, 8, 15, 16, 23, 42, 11];
 let secondTallestNumber4 = secondBiggestNumber4(nums4);
 console.log(secondTallestNumber4);
+
+{
+  /*
+🧩 10. Trouver tous les multiples de 3 ou 5 jusqu'à n
+📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+*/
+}
+
+function multiplesOf3Or5(nb: number): number[] {
+  if (!Number.isInteger(nb) || nb < 1) {
+    throw new Error(`La saisie doit être un nombre entier positif`);
+  }
+
+  const multiplesOf3Or5Array: number[] = [];
+
+  for (let i = 1; i <= nb; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      multiplesOf3Or5Array.push(i);
+    }
+  }
+  return multiplesOf3Or5Array;
+}
+
+let nb = 20;
+let multiplesOf3Or5Array = multiplesOf3Or5(nb);
+console.log(multiplesOf3Or5Array);
