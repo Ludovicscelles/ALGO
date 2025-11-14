@@ -866,22 +866,22 @@ function multiplesOf3Or5Bis(nb2: number): number[] {
     throw new Error(`La saisie doit être un nombre entier positif`);
   }
 
-  let arrayMutiblesOf3And5Bis: number[] = [];
+  let arrayMultiplesOf3And5Bis: number[] = [];
 
   let i = 1;
 
   while (i <= nb2) {
     if (i % 3 === 0 || i % 5 === 0) {
-      arrayMutiblesOf3And5Bis.push(i);
+      arrayMultiplesOf3And5Bis.push(i);
     }
     i++;
   }
-  return arrayMutiblesOf3And5Bis;
+  return arrayMultiplesOf3And5Bis;
 }
 
 let nb2 = 30;
-let arrayMutiblesOf3And5Bis = multiplesOf3Or5Bis(nb2);
-console.log(arrayMutiblesOf3And5Bis);
+let arrayMultiplesOf3And5Bis = multiplesOf3Or5Bis(nb2);
+console.log(arrayMultiplesOf3And5Bis);
 
 {
   /*
@@ -891,21 +891,49 @@ console.log(arrayMutiblesOf3And5Bis);
 }
 
 function multiplesOf3And5Ter(nb3: number): number[] {
-  
   if (!Number.isInteger(nb3) || nb3 < 1) {
     throw new Error(`La saisie doit être un nombre entier positif`);
   }
 
-  const arrayMutiblesOf3And5Ter: number[] = [];
+  const arrayMultiplesOf3And5Ter: number[] = [];
 
   for (let i = nb3; i >= 1; i--) {
     if (i % 3 === 0 || i % 5 === 0) {
-      arrayMutiblesOf3And5Ter.push(i);
+      arrayMultiplesOf3And5Ter.push(i);
     }
   }
-  return arrayMutiblesOf3And5Ter;
+  return arrayMultiplesOf3And5Ter.reverse();
 }
 
 let nb3 = 20;
-let arrayMutiblesOf3And5Ter = multiplesOf3And5Ter(nb3);
-console.log(arrayMutiblesOf3And5Ter);
+let arrayMultiplesOf3And5Ter = multiplesOf3And5Ter(nb3);
+console.log(arrayMultiplesOf3And5Ter);
+
+{
+  /*
+🧩 10quater. Trouver tous les multiples de 3 ou 5 jusqu'à n
+📌 Exemple : n = 10 → [3, 5, 6, 9, 10]
+*/
+}
+
+function multiplesOf3And5Quater(nb4: number): number[] {
+  if (!Number.isInteger(nb4) || nb4 < 1) {
+    throw new Error(`La saisie doit être un nombre entier positif`);
+  }
+
+  let arrayMultiplesOf3And5Quater: number[] = [];
+
+  let i = nb4;
+
+  while (i >= 1) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      arrayMultiplesOf3And5Quater.push(i);
+    }
+    i--;
+  }
+  return arrayMultiplesOf3And5Quater.reverse();
+}
+
+let nb4 = 30;
+let arrayMultiplesOf3And5Quater = multiplesOf3And5Quater(nb4);
+console.log(arrayMultiplesOf3And5Quater);
